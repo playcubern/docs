@@ -1,0 +1,91 @@
+---
+title: "The Basics"
+description: "Basics with scripting in Cubern"
+icon: "screwdriver-wrench"
+---
+
+
+If you've never used the **Luau programming language** before, you can read about its syntax in depth [here](https://luau.org/syntax).
+
+Cubern exposes its objects through a **datamodel**, where every object is an `Instance`. Understanding how to reference and manipulate Instances is fundamental to scripting in Cubern.
+
+---
+
+## Interacting with Instances
+
+Let’s say you have a part in the workspace that looks like a cube and is named `"Part"`. To manipulate it in your script, you need to get a reference to it.  
+
+### Safe way: `FindFirstChild`
+
+```lua
+local myPart = workspace:FindFirstChild("Part")
+````
+
+* `FindFirstChild` searches for a child object by name.
+* **Returns `nil`** if the object doesn’t exist, so it’s safer than direct indexing.
+
+Always check if the object exists before using it to avoid runtime errors.
+
+Example:
+
+```lua
+local myPart = workspace:FindFirstChild("Part")
+if myPart then
+    print("Found the part!")
+else
+    warn("Part not found!")
+end
+```
+
+---
+
+### Shortcut: Direct indexing
+
+You can also reference objects using the dot operator:
+
+```lua
+local myPart = workspace.Part
+```
+
+* This is shorter, but **will throw an error** if `Part` doesn’t exist.
+* Use it only when you are sure the object is present.
+
+Use `FindFirstChild` when working with dynamic or user-created objects.
+
+---
+
+## Modifying Properties
+
+Every `Instance` has properties you can read or change. For example, changing the `Name`:
+
+```lua
+local myPart = workspace.Part
+myPart.Name = "MyFavouritePart"
+print(myPart.Name)  -- Output: MyFavouritePart
+```
+
+* You can manipulate other properties in the same way, like `Position`, `Size`, or `Transparency`.
+
+Changing object names may break scripts that reference the original name. Be cautious when renaming objects dynamically.
+
+---
+
+## Summary
+
+* **Instance**: Every object in Cubern is an Instance.
+* **FindFirstChild**: Safe method to get children by name.
+* **Dot indexing**: Quick access if the object is guaranteed to exist.
+* **Properties**: Read/write object properties using `.`.
+
+---
+
+### Next steps
+
+Try creating a few parts and experimenting with:
+
+* `Name`
+* `Position`
+* `Size`
+
+Observe how your scripts behave with both `FindFirstChild` and dot indexing.
+
