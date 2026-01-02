@@ -1,0 +1,90 @@
+---
+title: "Instance"
+description: "Instance is the abstract class and every single datamodel inherits from Instance"
+icon: "cube"
+---
+
+<Note iconType="regular">
+  Instance is an abstract class and every datamodel inherits from this.
+</Note>
+
+## Properties
+### `Name: string`
+The name of the instance inside the world. Example:
+```lua
+print(workspace.Part.Name) -- outputs the name which would be "Part" here.
+```
+
+### `Parent: Instance`
+The parent of the instance inside the world.
+
+## Methods 
+### `GetChildren() : {Instance}`
+Returns a table containing all of the children instances of this instance.
+
+### `Destroy() : ()`
+Destroys the instance from game. Do remember to NOT make use of any methods or properties after
+destroying an instance! Example:
+```lua
+local part = workspace.Part
+part:Destroy()
+```
+
+### `IsA(className: string): boolean`
+Returns a boolean if the instance is of type given. For example:
+```lua
+local part = workspace.Part
+print(part:IsA("Part")) -- will print true
+```
+
+### `FindFirstChild(childName: string, recursive: boolean = false): Instance?`
+Tries to find the child with the name given in method. Example:
+```lua
+local part: Instance? = workspace:FindFirstChild("Part")
+if not part then 
+    print("Part was not found")
+else 
+    print("Part exists!")
+end
+```
+
+### `IsDescendantOf(ancestor: Instance): boolean`
+Example:
+```lua
+print(workspace.Part:IsDescendantOf(workspace)) -- will be true
+```
+
+### `New(classType: string): Instance` | `static`
+Example:
+```lua
+local part = Instance.New("Part")
+part.Parent = workspace
+```
+
+## Events
+### `ChildAdded: Instance`
+The event is fired whenever a new child is added to the instance. Example:
+```lua
+workspace.Part.ChildAdded:Connect(function(childAdded: Instance)
+    print("Child added named: " .. childAdded.Name)
+end)
+
+local newPart: Part = Instance.New("Part")
+newPart.Name = "newPart"
+newPart.Parent = workspace.Part
+```
+This will print "Child added named: newPart"
+
+### `ChildRemoved: Instance`
+The event is fired whenever a child is no longer a child to the instance. Example:
+```lua
+workspace.Part.ChildRemoved:Connect(function(childRemoved: Instance)
+    print("Child removed named: " .. childRemoved.Name)
+end)
+
+workspace.Part.newPart.Parent = nil
+```
+This will print "Child removed named: newPart"
+
+### `AncestryChanged: ()`
+The event is fired whenever a child is added or removed.
