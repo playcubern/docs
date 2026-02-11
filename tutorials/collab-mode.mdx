@@ -1,0 +1,62 @@
+---
+title: "About Collab Mode"
+description: "A tutorial explaining Collab Mode in depth."
+icon: "users"
+---
+
+## What is Collab?
+
+Collab is a feature of Cubern’s Editor that allows developers to create games on Cubern in real time.
+Collab supports up to 5 developers simultaneously, enabling them to write code together inside a single code editor.
+This means multiple developers can collaboratively work on a single script at the same time.
+
+**But why?**
+While working on Cubern, I wanted to create a smooth workflow-experience something that truly allows people to work together as a team and build in real time.
+Essentially, the goal was to establish genuine teamwork.
+The name “Collab” comes directly from the word *Collaboration* - the act of working with someone to produce something.
+
+---
+
+## What features does Collab have?
+
+Collab currently allows developers to write code in real time, similar to how multiple users can edit a single document simultaneously in Google Docs.
+It also supports real-time building, meaning you can add parts or make any changes to the game, and those changes will automatically replicate for all other developers working on the project.
+
+---
+
+## What features does Collab not have?
+
+Currently, Collab does not allow developers to work using external code editors.
+This means every developer must use the built-in code editor that comes with Cubern Editor.
+However, this shouldn’t be a major limitation since Cubern’s editor supports the Language Server Protocol, offering code completion, error diagnostics, and intelligent suggestions.
+
+Support for external code editors is planned for the future to further enhance the developer experience, but this feature is not currently under development—so no estimated release date can be given.
+
+Other than that, Collab supports nearly every core feature you would need.
+
+---
+
+## How does Collab work?
+
+Collab runs a dedicated server on the cloud that other developers connect to.
+When using Collab, the save feature creates a new cloud save instead of publishing it immediately.
+This allows you and your team to continue working from where you left off.
+
+Internally, Collab utilizes Cubern’s in-house networking framework, which is built on **ENet** for high performance and efficiency.
+For the real-time code editor, Cubern uses [CRDTs (Conflict-free Replicated Data Types)](https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type) in combination with [Google’s diff-match-patch library](https://github.com/google/diff-match-patch) to efficiently synchronize text changes.
+
+### Session Control
+
+Anyone can enable Collab for their game.
+The game owner can then send invitations to other developers they wish to collaborate with.
+Once invited, developers can join the session at any time.
+
+---
+
+## What about testing?
+
+You have two options for testing:
+You can either perform a **local playtest** if you want to test independently, or you can start a **collaborative playtest**, where other developers are notified that a session has started and can choose to join.
+If someone wants to join later, they can do so by going to the **Collab** menu in the menu bar and selecting **Join Playtest Session**, which will connect them to the same server as the other developers.
+
+---

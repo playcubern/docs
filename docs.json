@@ -27,11 +27,20 @@
             ]
           },
           {
+            "group": "Tutorials",
+            "pages": [
+              "tutorials/collab-mode",
+              "tutorials/writing-a-plugin"
+            ]
+          },
+          {
             "group": "Types",
             "pages": [
               "types/vector3",
               "types/vector2",
               "types/color3",
+              "types/udim",
+              "types/udim2",
               "types/event"
             ]
           },
@@ -64,7 +73,6 @@
               "services/soundservice",
               "services/httpservice",
               "services/warpservice"
-              
             ]
           },
           {
@@ -95,6 +103,14 @@
         }
       ]
     }
+  },
+  "navbar": {
+    "primary": 
+      {
+        "type": "github",
+        "href": "https://github.com/playcubern/docs"
+      }
+
   },
   "footer": {
     "socials": {
