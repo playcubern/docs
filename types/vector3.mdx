@@ -3,3 +3,75 @@ title: "Vector3"
 description: "Vector3"
 icon: "chart-scatter-3d"
 ---
+
+## Properties
+### `X: number`
+The X coordinate of the instance inside the 3D world.
+
+### `Y: number`
+The Y coordinate of the instance inside the 3D world.
+
+### `Z: number`
+The Z coordinate of the instance inside the 3D world.
+
+### `Magnitude: number`
+The magnitude
+
+## Methods
+### `new(x: number = 0, y: number = 0, z: number = 0): Vector3`
+The constructor to make a new Vector3.
+
+## Operators
+Based on your current implementation, here's what you have:
+
+## Properties
+### `X: number`
+The X coordinate of the vector in 3D space.
+
+### `Y: number`
+The Y coordinate of the vector in 3D space.
+
+### `Z: number`
+The Z coordinate of the vector in 3D space.
+
+### `Magnitude: number`
+The length/magnitude of the vector. Calculated as `sqrt(X² + Y² + Z²)`.
+
+### `Unit: Vector3`
+A normalized version of the vector (magnitude = 1). Returns `Vector3(0, 0, 0)` if magnitude is zero.
+
+## Methods
+### `Vector3.new(x: number?, y: number?, z: number?): Vector3`
+Creates a new Vector3. All parameters default to 0 if not provided.
+
+## Operators
+
+### Addition: `Vector3 + Vector3`
+```lua
+local sum = Vector3.new(1, 2, 3) + Vector3.new(4, 5, 6)  -- Vector3(5, 7, 9)
+```
+
+### Subtraction: `Vector3 - Vector3`
+```lua
+local diff = Vector3.new(5, 7, 9) - Vector3.new(1, 2, 3)  -- Vector3(4, 5, 6)
+```
+
+### Multiplication: `Vector3 * number` or `number * Vector3`
+```lua
+local scaled = Vector3.new(1, 2, 3) * 2  -- Vector3(2, 4, 6)
+```
+
+### Division: `Vector3 / number`
+```lua
+local halved = Vector3.new(2, 4, 6) / 2  -- Vector3(1, 2, 3)
+```
+
+### Dot Product: `Vector3 * Vector3`
+```lua
+local dot = Vector3.new(1, 0, 0) * Vector3.new(0, 1, 0)  -- 0
+```
+
+### Equality: `Vector3 == Vector3`
+```lua
+local equal = Vector3.new(1, 2, 3) == Vector3.new(1, 2, 3)  -- true
+```

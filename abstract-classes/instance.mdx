@@ -18,6 +18,10 @@ print(workspace.Part.Name) -- outputs the name which would be "Part" here.
 ### `Parent: Instance`
 The parent of the instance inside the world.
 
+
+### `Archivable: boolean`
+Default: true.
+
 ## Methods 
 ### `GetChildren() : {Instance}`
 Returns a table containing all of the children instances of this instance.
@@ -54,7 +58,7 @@ Example:
 print(workspace.Part:IsDescendantOf(workspace)) -- will be true
 ```
 
-### `New(classType: string): Instance` | `static`
+### `static` `New(classType: string): Instance`
 Example:
 ```lua
 local part = Instance.New("Part")

@@ -77,18 +77,88 @@
           },
           {
             "group": "Classes",
+            "pages": []
+          },
+          {
+            "group": "Gameplay",
+            "pages": [
+              "classes/player",
+              "classes/npc",
+              "classes/seat",
+              "classes/spawnpoint"
+            ]
+          },
+          {
+            "group": "3D Objects",
             "pages": [
               "classes/part",
-              "classes/meshpart",
+              "classes/meshpart"
+            ]
+          },
+          {
+            "group": "Lighting",
+            "pages": [
               "classes/pointlight",
-              "classes/sun",
-              "classes/player",
-              "classes/localscript",
-              "classes/script",
-              "classes/model",
-              "classes/folder",
-              "classes/accessory",
+              "classes/sun"
+            ]
+          },
+          {
+            "group": "UI",
+            "pages": [
+              "classes/uipanel",
+              "classes/uilabel",
+              "classes/uiimagelabel",
+              "classes/uibutton",
+              "classes/uiverticallayout",
+              "classes/uihorizontallayout",
+              "classes/uiscrollingframe",
+              "classes/uitextbox",
+              "classes/uislider",
+              "classes/uicheckbox"
+            ]
+          },
+          {
+            "group": "Effects & Audio",
+            "pages": [
+              "classes/particles",
               "classes/sound"
+            ]
+          },
+          {
+            "group": "Animation",
+            "pages": [
+              "classes/animation"
+            ]
+          },
+          {
+            "group": "Containers",
+            "pages": [
+              "classes/model",
+              "classes/folder"
+            ]
+          },
+          {
+            "group": "Value Objects",
+            "pages": [
+              "classes/numbervalue",
+              "classes/booleanvalue",
+              "classes/stringvalue",
+              "classes/vector3value",
+              "classes/color3value",
+              "classes/instancevalue"
+            ]
+          },
+          {
+            "group": "Character Appearance",
+            "pages": [
+              "classes/accessory"
+            ]
+          },
+          {
+            "group": "Scripts",
+            "pages": [
+              "classes/localscript",
+              "classes/script"
             ]
           }
         ]
@@ -105,12 +175,10 @@
     }
   },
   "navbar": {
-    "primary": 
-      {
-        "type": "github",
-        "href": "https://github.com/playcubern/docs"
-      }
-
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/playcubern/docs"
+    }
   },
   "footer": {
     "socials": {
