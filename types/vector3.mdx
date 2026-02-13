@@ -17,9 +17,13 @@ The Z coordinate of the instance inside the 3D world.
 ### `Magnitude: number`
 The magnitude
 
+---
+
 ## Methods
 ### `new(x: number = 0, y: number = 0, z: number = 0): Vector3`
 The constructor to make a new Vector3.
+
+---
 
 ## Operators
 Based on your current implementation, here's what you have:
@@ -46,32 +50,32 @@ Creates a new Vector3. All parameters default to 0 if not provided.
 
 ## Operators
 
-### Addition: `Vector3 + Vector3`
+### Addition: `+`
 ```lua
 local sum = Vector3.new(1, 2, 3) + Vector3.new(4, 5, 6)  -- Vector3(5, 7, 9)
 ```
 
-### Subtraction: `Vector3 - Vector3`
+### Subtraction: `-`
 ```lua
 local diff = Vector3.new(5, 7, 9) - Vector3.new(1, 2, 3)  -- Vector3(4, 5, 6)
 ```
 
-### Multiplication: `Vector3 * number` or `number * Vector3`
+### Multiplication: `*`
 ```lua
 local scaled = Vector3.new(1, 2, 3) * 2  -- Vector3(2, 4, 6)
 ```
 
-### Division: `Vector3 / number`
+### Division: `/`
 ```lua
 local halved = Vector3.new(2, 4, 6) / 2  -- Vector3(1, 2, 3)
 ```
 
-### Dot Product: `Vector3 * Vector3`
+### Dot Product: `*`
 ```lua
 local dot = Vector3.new(1, 0, 0) * Vector3.new(0, 1, 0)  -- 0
 ```
 
-### Equality: `Vector3 == Vector3`
+### Equality: `==`
 ```lua
 local equal = Vector3.new(1, 2, 3) == Vector3.new(1, 2, 3)  -- true
 ```

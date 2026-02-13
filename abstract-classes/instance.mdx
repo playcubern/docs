@@ -8,6 +8,10 @@ icon: "cube"
   Instance is an abstract class and every datamodel inherits from this.
 </Note>
 
+<Warning iconType="regular">
+  This class cannot be created from `Instance.New`
+</Warning>
+
 ## Properties
 ### `Name: string`
 The name of the instance inside the world. Example:
@@ -22,7 +26,26 @@ The parent of the instance inside the world.
 ### `Archivable: boolean`
 Default: true.
 
+---
+
 ## Methods 
+### `static` `New(classType: string): Instance`
+Example:
+```lua
+local part = Instance.New("Part")
+part.Parent = workspace
+```
+
+### `Clone() : ()`
+Clones the instance and returns it. 
+Example:
+```lua
+local part = workspace.Part
+local newPart = part:Clone()
+newPart.Name = "ClonedPart"
+newPart.Parent = workspace
+```
+
 ### `GetChildren() : {Instance}`
 Returns a table containing all of the children instances of this instance.
 
@@ -52,18 +75,56 @@ else
 end
 ```
 
+### `ClearAllChildren(): ()`
+Clears all of the Instance's children.
+
+### `WaitForChild(instanceName: string): Instance`
+Waits for the child with the given name. The script will yield till the instance is not found!
+If no instance is found and timeout occurs, a warning will be produced. 
+Example:
+```lua
+local doesntExist = workspace:WaitForChild("I dont exist") -- this will generate a warning 
+
+local exists = workspace:WaitForChild("Exists") -- it will wait till not found and once found it will return
+```
+
+### `WaitForChild(instanceName: string, timeout: number): Instance?`
+Waits for the child with the given name. The script will yield till the instance is not found or if the given timeout occurs.
+
+
 ### `IsDescendantOf(ancestor: Instance): boolean`
 Example:
 ```lua
 print(workspace.Part:IsDescendantOf(workspace)) -- will be true
 ```
 
-### `static` `New(classType: string): Instance`
+### `AddTag(tagName: string): ()`
+Adds the tag onto the instance.
 Example:
 ```lua
-local part = Instance.New("Part")
-part.Parent = workspace
+workspace.Part:AddTag("MyTag")
 ```
+
+### `HasTag(tagName: string): boolean`
+Returns true if the given instance has the given tag.
+Example:
+```lua
+workspace.Part:HasTag("MyTag")
+```
+
+### `GetTags(): { any }`
+Returns all the tags associated with the instance.
+
+
+### `RemoveTag(tagName: string): ()`
+Removes the tag from the instance, if found.
+Example:
+```lua
+workspace.Part:RemoveTag("MyTag")
+```
+Note: It will not error or generate any warnings.
+
+---
 
 ## Events
 ### `ChildAdded: Instance`
@@ -92,3 +153,17 @@ This will print "Child removed named: newPart"
 
 ### `AncestryChanged: ()`
 The event is fired whenever a child is added or removed.
+
+### `PropertyChanged: string, any`
+The event is fired whenever the property of the instance changes. Example:
+```lua
+workspace.Part.PropertyChanged:Connect(function(propertyName: Instance, newValue: any)
+    print("Property changed called: " .. propertyName .. " with value " .. newValue)
+end)
+
+Name = "NewName"
+```
+This will print:
+```
+Property changed called: Name with value NewName
+```

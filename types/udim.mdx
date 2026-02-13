@@ -11,6 +11,62 @@ The scale of the UDim
 ### `Offset: number`
 The offset of the UDim
 
+---
+
 ## Constructors
 ### `new(scale: number = 0, offset: number = 0): UDim`
 The constructor to make a new UDim.
+
+---
+
+## Operators
+
+### Addition: `+`
+
+Adds two `UDim` values together.
+Each component (`Scale`, `Offset`) is added separately.
+Returns the resulting `UDim`.
+
+**Do remember:** The `Scale` component is **clamped** from 0 to 1.0.
+
+**Example:**
+
+```lua
+local a = UDim.new(0.5, 10)
+local b = UDim.new(0.25, -5)
+local c = a + b -- UDim(0.75, 5)
+```
+
+---
+
+### Subtraction: `-`
+
+Subtracts the second `UDim` from the first.
+Each component (`Scale`, `Offset`) is subtracted separately.
+Returns the resulting `UDim`.
+
+**Do remember:** The `Scale` component is **clamped** from 0 to 1.0.
+
+**Example:**
+
+```lua
+local a = UDim.new(0.5, 10)
+local b = UDim.new(0.25, -5)
+local c = a - b -- UDim(0.25, 15)
+```
+
+---
+
+### Unary Minus: `-`
+
+Negates a `UDim`, returning a new value where each component (`Scale`, `Offset`) is multiplied by `-1`.
+This effectively inverts the direction or sign of the `UDim` without modifying the original value.
+
+**Do remember:** The `Scale` component is **clamped** from 0 to 1.0.
+
+**Example:**
+
+```lua
+local a = UDim.new(0.5, 10)
+local b = -a -- UDim(0.5, -10)
+```
