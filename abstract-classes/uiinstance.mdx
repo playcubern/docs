@@ -3,3 +3,91 @@ title: "UiInstance"
 description: "UiInstance is the abstract class and every ui datamodel inherits from it"
 icon: "sidebar"
 ---
+
+<Note iconType="regular">
+  UiInstance inherits Instance.
+</Note>
+
+<Warning iconType="regular">
+  This class cannot be created from `Instance.New`
+</Warning>
+
+<Warning iconType="regular">
+  This is an abstract class.
+</Warning>
+
+## Properties
+### `Position: UDim2`
+The position of the UI Instance relative to its parent.
+
+### `Size: UDim2`
+The size of the UI Instance relative to its parent.
+
+### `Rotation: number`
+The rotation of the UI instance in terms of degrees.
+
+### `AbsolutePosition: Vector2`
+The pixel position relative to the screen’s top-left corner.
+
+### `AbsoluteSize: Vector2`
+The pixel size.
+
+### `AnchorPoint: Vector2`
+The anchor point of the UI instance/
+
+### `Active: boolean`
+If the UI Instance should recieve input or not.
+
+### `Visible: boolean`
+If the UI Instance should be visible or not.
+
+### `ClipsDescendants: boolean`
+Whether the UI instance should clip the children out of it.
+
+### `ZIndex: number`
+The ZIndex of the UI instance. Used for layering properly.
+
+
+---
+
+## Methods
+### `CaptureFocus(): ()`
+Captures the focus of the mouse.
+
+### `ReleaseFocus(): ()`
+Releases the focus of the mouse.
+
+---
+
+## Events
+### `MouseEntered`
+Called whenever the mouse enters the UI instance. Example:
+```lua
+script.Parent.MouseEntered:Connect(function() 
+    print("Mouse entered")
+end)
+```
+
+### `MouseLeft`
+Called whenever the mouse leaves the UI instance. Example:
+```lua
+script.Parent.MouseLeft:Connect(function() 
+    print("Mouse left")
+end)
+```
+
+### `MouseMoved`
+Called whenever the mouse moves inside the UI instance. Example:
+```lua
+script.Parent.MouseMoved:Connect(function() 
+    print("Mouse moved")
+end)
+```
+
+### `VisibilityChanged: boolean`
+Called whenever the visiblity is changed of this very UI instance. Example:
+```lua
+script.Parent.VisibilityChanged:Connect(function(newVisibility: boolean) 
+    print("Visibility changed to " .. newVisibility)
+end)
+```
