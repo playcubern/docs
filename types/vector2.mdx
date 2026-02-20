@@ -4,6 +4,10 @@ description: "Vector2"
 icon: "arrow-up-left"
 ---
 
+<Warning iconType="regular">
+  The properties of Vector2 are not mutable once created.
+</Warning>
+
 ## Properties
 ### `X: number`
 The X coordinate of the UI instance inside game.
@@ -11,4 +15,8 @@ The X coordinate of the UI instance inside game.
 ### `Y: number`
 The Y coordinate of the UI instance inside game.
 
-## Methods
+---
+
+## Constructors
+### `Vector2.new(x: number?, y: number?): Vector2`
+Creates a new Vector2. All parameters default to 0 if not provided.

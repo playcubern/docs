@@ -14,17 +14,19 @@ icon: "cube"
 
 ## Properties
 ### `Name: string`
-The name of the instance inside the world. Example:
+The name of the instance inside the game. Example:
 ```lua
 print(workspace.Part.Name) -- outputs the name which would be "Part" here.
 ```
 
-### `Parent: Instance`
-The parent of the instance inside the world.
+### `ClassName: string`
+The classname.
 
+### `Parent: Instance`
+The parent of the instance inside the game.
 
 ### `Archivable: boolean`
-Default: true.
+If the instance is serializable or not. Default: true. 
 
 ---
 
@@ -48,6 +50,18 @@ newPart.Parent = workspace
 
 ### `GetChildren() : {Instance}`
 Returns a table containing all of the children instances of this instance.
+
+### `GetChildAt(index: number) : Instance?`
+Returns the child at the index number given.
+
+### `GetDescendants() : {Instance}`
+Returns a table containing all of the descendants.
+
+### `GetParent() : Instance?`
+Returns the parent of the instance. Nil if none.
+
+### `GetFullName(): string`
+Returns the full name of the instance. Example: `Workspace.Part`
 
 ### `Destroy() : ()`
 Destroys the instance from game. Do remember to NOT make use of any methods or properties after
@@ -75,6 +89,16 @@ else
 end
 ```
 
+### `FindFirstChildOfClass(className: string): Instance?`
+Returns the first child whose `ClassName` matches the given string.
+
+### `FindFirstAncestor(ancestorName: string): Instance?`
+Works upward from the parent to find an ancestor with the specific name.
+
+### `FindFirstAncestorOfClass(className: string): Instance?`
+Works upward to find the first ancestor that inherits from a specific class.
+
+
 ### `ClearAllChildren(): ()`
 Clears all of the Instance's children.
 
@@ -91,6 +115,8 @@ local exists = workspace:WaitForChild("Exists") -- it will wait till not found a
 ### `WaitForChild(instanceName: string, timeout: number): Instance?`
 Waits for the child with the given name. The script will yield till the instance is not found or if the given timeout occurs.
 
+### `IsAncestorOf(instance: Instance): boolean`
+Returns true if the instance is an ancestor of the given descendant.
 
 ### `IsDescendantOf(ancestor: Instance): boolean`
 Example:
@@ -99,14 +125,14 @@ print(workspace.Part:IsDescendantOf(workspace)) -- will be true
 ```
 
 ### `AddTag(tagName: string): ()`
-Adds the tag onto the instance.
+Adds the tag onto the instance. Tags added from the server-side will replicate to all of the connected clients.
 Example:
 ```lua
 workspace.Part:AddTag("MyTag")
 ```
 
 ### `HasTag(tagName: string): boolean`
-Returns true if the given instance has the given tag.
+Returns true if the given instance has the given tag. 
 Example:
 ```lua
 workspace.Part:HasTag("MyTag")
@@ -117,7 +143,7 @@ Returns all the tags associated with the instance.
 
 
 ### `RemoveTag(tagName: string): ()`
-Removes the tag from the instance, if found.
+Removes the tag from the instance, if found. Tags removed from the server-side will replicate to all of the connected clients.
 Example:
 ```lua
 workspace.Part:RemoveTag("MyTag")
@@ -138,7 +164,11 @@ local newPart: Part = Instance.New("Part")
 newPart.Name = "newPart"
 newPart.Parent = workspace.Part
 ```
-This will print "Child added named: newPart"
+This will print:
+```
+Child added named: newPart
+```
+
 
 ### `ChildRemoved: Instance`
 The event is fired whenever a child is no longer a child to the instance. Example:
@@ -149,7 +179,13 @@ end)
 
 workspace.Part.newPart.Parent = nil
 ```
-This will print "Child removed named: newPart"
+This will print:
+```
+Child removed named: newPart
+```
+
+### `Destroying: ()`
+The event is fired whenever `Destroy()` is called of this instance.
 
 ### `AncestryChanged: ()`
 The event is fired whenever a child is added or removed.
@@ -157,7 +193,7 @@ The event is fired whenever a child is added or removed.
 ### `PropertyChanged: string, any`
 The event is fired whenever the property of the instance changes. Example:
 ```lua
-workspace.Part.PropertyChanged:Connect(function(propertyName: Instance, newValue: any)
+workspace.Part.PropertyChanged:Connect(function(propertyName: string, newValue: any)
     print("Property changed called: " .. propertyName .. " with value " .. newValue)
 end)
 
@@ -166,4 +202,20 @@ Name = "NewName"
 This will print:
 ```
 Property changed called: Name with value NewName
+```
+
+### `TagAdded: string`
+The event is fired whener a tag is added to this instance. Example:
+```lua
+workspace.Part.TagAdded:Connect(function(tag: string)
+    print("Tag added: " .. tag)
+end)
+```
+
+### `TagRemoved: string`
+The event is fired whener a tag is removed from this instance. Example:
+```lua
+workspace.Part.TagRemoved:Connect(function(tag: string)
+    print("Tag removed: " .. tag)
+end)
 ```

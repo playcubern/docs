@@ -4,6 +4,9 @@ description: "Vector3"
 icon: "chart-scatter-3d"
 ---
 
+<Warning iconType="regular">
+  The properties of Vector3 are not mutable once created.
+</Warning>
 
 ## Properties
 ### `X: number`
@@ -21,7 +24,7 @@ The length/magnitude of the vector. Calculated as `sqrt(X² + Y² + Z²)`.
 ### `Unit: Vector3`
 A normalized version of the vector (magnitude = 1). Returns `Vector3(0, 0, 0)` if magnitude is zero.
 
-## Methods
+## Constructors
 ### `Vector3.new(x: number?, y: number?, z: number?): Vector3`
 Creates a new Vector3. All parameters default to 0 if not provided.
 

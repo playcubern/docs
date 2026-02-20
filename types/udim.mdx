@@ -4,6 +4,10 @@ description: "UDim"
 icon: "square"
 ---
 
+<Warning iconType="regular">
+  The properties of UDim are not mutable once created.
+</Warning>
+
 ## Properties
 ### `Scale: number`
 The scale of the UDim
@@ -14,7 +18,7 @@ The offset of the UDim
 ---
 
 ## Constructors
-### `new(scale: number = 0, offset: number = 0): UDim`
+### `UDim.new(scale: number = 0, offset: number = 0): UDim`
 The constructor to make a new UDim.
 
 ---
