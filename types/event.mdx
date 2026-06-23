@@ -3,3 +3,30 @@ title: "Event"
 description: "Event"
 icon: "bolt-lightning"
 ---
+
+An `Event` lets you listen for things that happen in the game. You connect a
+callback to an event and it is invoked with the event's arguments whenever the
+event fires.
+
+## Methods
+### `Connect(callback: (T...) -> ()): EventConnection`
+Connects a callback that is called every time the event fires. Returns an
+[EventConnection](/types/eventconnection) that can be used to disconnect the
+callback. Example:
+```lua
+local connection = script.Parent.MouseEnter:Connect(function()
+    print("Mouse entered")
+end)
+```
+
+### `Once(callback: (T...) -> ()): EventConnection`
+Connects a callback that is called the next time the event fires and then
+automatically disconnects. Returns an [EventConnection](/types/eventconnection).
+
+### `Wait(): T...`
+Yields the current thread until the event fires, then returns the event's
+arguments. Example:
+```lua
+local text = script.Parent.Submitted:Wait()
+print("Submitted: " .. text)
+```

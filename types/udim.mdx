@@ -10,16 +10,10 @@ icon: "square"
 
 ## Properties
 ### `Scale: number`
-The scale of the UDim
+The scale of the UDim.
 
 ### `Offset: number`
-The offset of the UDim
-
----
-
-## Constructors
-### `UDim.new(scale: number = 0, offset: number = 0): UDim`
-The constructor to make a new UDim.
+The offset of the UDim.
 
 ---
 
@@ -36,8 +30,8 @@ Returns the resulting `UDim`.
 **Example:**
 
 ```lua
-local a = UDim.new(0.5, 10)
-local b = UDim.new(0.25, -5)
+local a = -- a UDim with Scale 0.5, Offset 10
+local b = -- a UDim with Scale 0.25, Offset -5
 local c = a + b -- UDim(0.75, 5)
 ```
 
@@ -51,14 +45,6 @@ Returns the resulting `UDim`.
 
 **Do remember:** The `Scale` component is **clamped** from 0 to 1.0.
 
-**Example:**
-
-```lua
-local a = UDim.new(0.5, 10)
-local b = UDim.new(0.25, -5)
-local c = a - b -- UDim(0.25, 15)
-```
-
 ---
 
 ### Unary Minus: `-`
@@ -67,10 +53,3 @@ Negates a `UDim`, returning a new value where each component (`Scale`, `Offset`)
 This effectively inverts the direction or sign of the `UDim` without modifying the original value.
 
 **Do remember:** The `Scale` component is **clamped** from 0 to 1.0.
-
-**Example:**
-
-```lua
-local a = UDim.new(0.5, 10)
-local b = -a -- UDim(0.5, -10)
-```

@@ -10,16 +10,10 @@ icon: "shapes"
 
 ## Properties
 ### `X: UDim`
-The X UDim
+The X UDim.
 
 ### `Y: UDim`
-The Y UDim
-
----
-
-## Constructors
-### `UDim2.new(X: UDim = default, y: UDim = default): UDim2`
-The constructor to make a new UDim2.
+The Y UDim.
 
 ---
 
@@ -29,12 +23,7 @@ Adds two UDim2 values together.
 Each component (X.Scale, X.Offset, Y.Scale, Y.Offset) is added separately.
 Then returns the final sum.
 
-Example:
-```lua
-local a = UDim2.new(0.5, 10, 0.5, 20)
-local b = UDim2.new(0.25, -10, 0, 5)
-local c = a + b -- UDim2(0.75, 0, 0.5, 25)
-```
+Do remember the Scale component is **clamped** from 0 to 1.0.
 
 ---
 
@@ -43,13 +32,6 @@ Subtracts each component of the second UDim2 from the first and returns the resu
 
 Do remember the Scale component is **clamped** from 0 to 1.0.
 
-Example:
-```lua
-local a = UDim2.new(0.5, 10, 0.5, 20)
-local b = UDim2.new(0.25, -10, 0, 5)
-local c = a - b -- UDim2.new(0.25, 20, 0.5, 15)
-```
-
 ---
 
 ### Unary Minus: `-`
@@ -57,9 +39,3 @@ Negates the UDim2, returning a new value where each component (X.Scale, X.Offset
 This effectively inverts the direction or sign of the UDim2 without modifying the original value.
 
 Do remember the Scale component is **clamped** from 0 to 1.0.
-
-Example:
-```lua
-local a = UDim2.new(0.5, 10, 0.5, 20)
-local b = -a -- b becomes: UDim2(0.5, -10, 0.5, -20)
-```

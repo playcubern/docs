@@ -1,0 +1,50 @@
+---
+title: "UiView"
+description: "UiView is the abstract class for UI instances with a background and border"
+icon: "table-cells-large"
+---
+
+<Note iconType="regular">
+  UiView inherits UiInstance.
+</Note>
+
+<Warning iconType="regular">
+  This is an abstract class.
+</Warning>
+
+UiView adds background, corner radius and border styling on top of
+[UiInstance](/abstract-classes/uiinstance). UI classes such as
+[UiPanel](/classes/uipanel), [UiLabel](/classes/uilabel),
+[UiTextButton](/classes/uitextbutton) and [UiTextInput](/classes/uitextinput)
+inherit from it.
+
+## Properties
+### `BackgroundColor: Color3`
+The background color of the view.
+
+### `CornerRadiusTopLeft: number`
+The corner radius of the top-left corner.
+
+### `CornerRadiusTopRight: number`
+The corner radius of the top-right corner.
+
+### `CornerRadiusBottomLeft: number`
+The corner radius of the bottom-left corner.
+
+### `CornerRadiusBottomRight: number`
+The corner radius of the bottom-right corner.
+
+### `BorderColor: Color3`
+The color of the border.
+
+### `BorderWidthTop: number`
+The width of the top border.
+
+### `BorderWidthBottom: number`
+The width of the bottom border.
+
+### `BorderWidthLeft: number`
+The width of the left border.
+
+### `BorderWidthRight: number`
+The width of the right border.

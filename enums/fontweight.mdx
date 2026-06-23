@@ -1,0 +1,39 @@
+---
+title: "FontWeight"
+description: "FontWeight"
+icon: "bold"
+---
+
+The `FontWeight` enum defines the weight of the font used by text UI instances
+such as [UiLabel](/classes/uilabel). Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.FontWeight`.
+
+## Values
+### `Enum.FontWeight.Light`
+A light font weight.
+
+### `Enum.FontWeight.Regular`
+A regular font weight.
+
+### `Enum.FontWeight.Medium`
+A medium font weight.
+
+### `Enum.FontWeight.Semibold`
+A semibold font weight.
+
+### `Enum.FontWeight.Bold`
+A bold font weight.
+
+### `Enum.FontWeight.Black`
+A black (heaviest) font weight.
+
+---
+
+## Methods
+### `GetEnumItems(): { FontWeight }`
+Returns a table of every `FontWeight` value. Example:
+```lua
+for _, weight in Enum.FontWeight:GetEnumItems() do
+    print(weight.Name)
+end
+```

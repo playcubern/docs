@@ -9,8 +9,14 @@ icon: "cube"
 </Note>
 
 ## Properties
+### `Shape: PartShape`
+The shape of the part. See the [PartShape](/enums/partshape) enum for the available values. Example:
+```lua
+workspace.Part.Shape = Enum.PartShape.Sphere
+```
+
 ### `Color: Color3`
-The parts color. Example:
+The color of the part. Example:
 ```lua
 workspace.Part.Color = Color3.fromHex("#000000")
 ```

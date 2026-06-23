@@ -9,7 +9,7 @@ icon: "sidebar"
 </Note>
 
 <Warning iconType="regular">
-  This class cannot be created from `Instance.New`
+  This class cannot be created from `Instance.new`
 </Warning>
 
 <Warning iconType="regular">
@@ -18,76 +18,52 @@ icon: "sidebar"
 
 ## Properties
 ### `Position: UDim2`
-The position of the UI Instance relative to its parent.
+The position of the UI instance relative to its parent.
 
 ### `Size: UDim2`
-The size of the UI Instance relative to its parent.
+The size of the UI instance relative to its parent.
+
+### `AnchorPoint: Vector3`
+The anchor point of the UI instance.
 
 ### `Rotation: number`
-The rotation of the UI instance in terms of degrees.
-
-### `AbsolutePosition: Vector2`
-The pixel position relative to the screen’s top-left corner.
-
-### `AbsoluteSize: Vector2`
-The pixel size.
-
-### `AnchorPoint: Vector2`
-The anchor point of the UI instance/
-
-### `Active: boolean`
-If the UI Instance should recieve input or not.
-
-### `Visible: boolean`
-If the UI Instance should be visible or not.
-
-### `ClipsDescendants: boolean`
-Whether the UI instance should clip the children out of it.
+The rotation of the UI instance in degrees.
 
 ### `ZIndex: number`
 The ZIndex of the UI instance. Used for layering properly.
 
+### `Active: boolean`
+Whether the UI instance should receive input.
 
----
+### `Visible: boolean`
+Whether the UI instance should be visible.
 
-## Methods
-### `CaptureFocus(): ()`
-Captures the focus of the mouse.
-
-### `ReleaseFocus(): ()`
-Releases the focus of the mouse.
+### `ClipsDescendants: boolean`
+Whether the UI instance should clip the children out of it.
 
 ---
 
 ## Events
-### `MouseEntered`
-Called whenever the mouse enters the UI instance. Example:
+### `MouseEnter`
+Fired whenever the mouse enters the UI instance. Example:
 ```lua
-script.Parent.MouseEntered:Connect(function() 
+script.Parent.MouseEnter:Connect(function()
     print("Mouse entered")
 end)
 ```
 
-### `MouseLeft`
-Called whenever the mouse leaves the UI instance. Example:
+### `MouseLeave`
+Fired whenever the mouse leaves the UI instance. Example:
 ```lua
-script.Parent.MouseLeft:Connect(function() 
+script.Parent.MouseLeave:Connect(function()
     print("Mouse left")
 end)
 ```
 
 ### `MouseMoved`
-Called whenever the mouse moves inside the UI instance. Example:
+Fired whenever the mouse moves inside the UI instance. Example:
 ```lua
-script.Parent.MouseMoved:Connect(function() 
+script.Parent.MouseMoved:Connect(function()
     print("Mouse moved")
-end)
-```
-
-### `VisibilityChanged: boolean`
-Called whenever the visiblity is changed of this very UI instance. Example:
-```lua
-script.Parent.VisibilityChanged:Connect(function(newVisibility: boolean) 
-    print("Visibility changed to " .. newVisibility)
 end)
 ```

@@ -22,11 +22,79 @@ The Z coordinate of the vector in 3D space.
 The length/magnitude of the vector. Calculated as `sqrt(X² + Y² + Z²)`.
 
 ### `Unit: Vector3`
-A normalized version of the vector (magnitude = 1). Returns `Vector3(0, 0, 0)` if magnitude is zero.
+A normalized version of the vector (magnitude = 1).
+
+<Note iconType="regular">
+  The lowercase aliases `x`, `y`, `z`, `magnitude` and `unit` are also available.
+</Note>
+
+---
 
 ## Constructors
 ### `Vector3.new(x: number?, y: number?, z: number?): Vector3`
 Creates a new Vector3. All parameters default to 0 if not provided.
+
+---
+
+## Statics
+### `Vector3.zero: Vector3`
+A Vector3 with all components set to 0.
+
+### `Vector3.one: Vector3`
+A Vector3 with all components set to 1.
+
+### `Vector3.xAxis: Vector3`
+A Vector3 pointing along the X axis `(1, 0, 0)`.
+
+### `Vector3.yAxis: Vector3`
+A Vector3 pointing along the Y axis `(0, 1, 0)`.
+
+### `Vector3.zAxis: Vector3`
+A Vector3 pointing along the Z axis `(0, 0, 1)`.
+
+### `Vector3.min(...: Vector3): Vector3`
+Returns a Vector3 with the smallest component out of each of the given vectors.
+
+### `Vector3.max(...: Vector3): Vector3`
+Returns a Vector3 with the largest component out of each of the given vectors.
+
+---
+
+## Methods
+### `Abs(): Vector3`
+Returns a Vector3 with the absolute value of each component.
+
+### `Angle(other: Vector3, axis: Vector3?): number`
+Returns the angle in radians between this vector and `other`. If `axis` is provided it is used to determine the sign of the angle.
+
+### `Ceil(): Vector3`
+Returns a Vector3 with each component rounded up to the nearest integer.
+
+### `Cross(other: Vector3): Vector3`
+Returns the cross product of this vector and `other`.
+
+### `Dot(other: Vector3): number`
+Returns the dot product of this vector and `other`.
+
+### `Floor(): Vector3`
+Returns a Vector3 with each component rounded down to the nearest integer.
+
+### `FuzzyEq(other: Vector3, epsilon: number?): boolean`
+Returns true if this vector and `other` are approximately equal within the optional `epsilon`.
+
+### `Lerp(goal: Vector3, alpha: number): Vector3`
+Linearly interpolates between this vector and `goal` by `alpha`.
+
+### `Max(...: Vector3): Vector3`
+Returns a Vector3 with the largest component out of this vector and the given vectors.
+
+### `Min(...: Vector3): Vector3`
+Returns a Vector3 with the smallest component out of this vector and the given vectors.
+
+### `Sign(): Vector3`
+Returns a Vector3 with each component replaced by its sign (`-1`, `0` or `1`).
+
+---
 
 ## Operators
 
@@ -41,21 +109,24 @@ local diff = Vector3.new(5, 7, 9) - Vector3.new(1, 2, 3)  -- Vector3(4, 5, 6)
 ```
 
 ### Multiplication: `*`
+Multiplies by another Vector3 or by a number.
 ```lua
 local scaled = Vector3.new(1, 2, 3) * 2  -- Vector3(2, 4, 6)
 ```
 
 ### Division: `/`
+Divides by another Vector3 or by a number.
 ```lua
 local halved = Vector3.new(2, 4, 6) / 2  -- Vector3(1, 2, 3)
 ```
 
-### Dot Product: `*`
+### Floor Division: `//`
+Divides by another Vector3 or by a number, rounding each component down.
 ```lua
-local dot = Vector3.new(1, 0, 0) * Vector3.new(0, 1, 0)  -- 0
+local floored = Vector3.new(5, 7, 9) // 2  -- Vector3(2, 3, 4)
 ```
 
-### Equality: `==`
+### Unary Minus: `-`
 ```lua
-local equal = Vector3.new(1, 2, 3) == Vector3.new(1, 2, 3)  -- true
+local negated = -Vector3.new(1, 2, 3)  -- Vector3(-1, -2, -3)
 ```

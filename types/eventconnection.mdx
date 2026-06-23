@@ -1,0 +1,19 @@
+---
+title: "EventConnection"
+description: "EventConnection"
+icon: "link"
+---
+
+An `EventConnection` represents a callback connected to an [Event](/types/event).
+It is returned by `Connect` and `Once` and is used to stop listening.
+
+## Methods
+### `Disconnect(): ()`
+Disconnects the callback so it is no longer called when the event fires. Example:
+```lua
+local connection = script.Parent.MouseEnter:Connect(function()
+    print("Mouse entered")
+end)
+
+connection:Disconnect()
+```

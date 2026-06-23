@@ -1,0 +1,38 @@
+---
+title: "PartShape"
+description: "PartShape"
+icon: "shapes"
+---
+
+The `PartShape` enum defines the shape of a [Part](/classes/part). Each value is
+an [EnumItem](/types/enumitem) accessed through `Enum.PartShape`.
+
+## Values
+### `Enum.PartShape.Cube`
+A cube shape.
+
+### `Enum.PartShape.Cylinder`
+A cylinder shape.
+
+### `Enum.PartShape.Sphere`
+A sphere shape.
+
+### `Enum.PartShape.Wedge`
+A wedge shape.
+
+### `Enum.PartShape.Cone`
+A cone shape.
+
+### `Enum.PartShape.Capsule`
+A capsule shape.
+
+---
+
+## Methods
+### `GetEnumItems(): { PartShape }`
+Returns a table of every `PartShape` value. Example:
+```lua
+for _, shape in Enum.PartShape:GetEnumItems() do
+    print(shape.Name)
+end
+```

@@ -3,3 +3,31 @@ title: "Game"
 description: "Game is the root service and every service is a child of it."
 icon: "gamepad"
 ---
+
+<Note iconType="regular">
+  Game inherits ServiceProvider.
+</Note>
+
+The `game` global is the root of the data model. Every service is a child of it.
+
+## Properties
+### `Workspace: Workspace`
+A reference to the [Workspace](/services/workspace) service.
+
+### `LocalScripts: LocalScripts`
+A reference to the [LocalScripts](/services/localscripts) service.
+
+### `Players: Players`
+A reference to the [Players](/services/players) service.
+
+### `IsLoaded: boolean`
+Whether the game has finished loading.
+
+---
+
+## Methods
+### `GetService(serviceName: string): Instance`
+Returns the service with the given name. Example:
+```lua
+local players = game:GetService("Players")
+```

@@ -1,0 +1,31 @@
+---
+title: "ServiceProvider"
+description: "ServiceProvider is the abstract class that provides access to services"
+icon: "server"
+---
+
+<Note iconType="regular">
+  ServiceProvider inherits Instance.
+</Note>
+
+<Warning iconType="regular">
+  This class cannot be created from `Instance.new`
+</Warning>
+
+<Warning iconType="regular">
+  This is an abstract class.
+</Warning>
+
+[Game](/services/game) inherits from ServiceProvider, which is how services are
+retrieved.
+
+## Methods
+### `GetService(className: ServiceType): Instance`
+Returns the service with the given name. `ServiceType` is one of:
+`"Workspace"`, `"ReplicatedStorage"`, `"ServerStorage"`, `"Scripts"`,
+`"LocalScripts"`, `"Players"`, `"PlayerGui"` or `"Environment"`.
+
+Example:
+```lua
+local players = game:GetService("Players")
+```

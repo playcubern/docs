@@ -9,7 +9,7 @@ icon: "cube"
 </Note>
 
 <Warning iconType="regular">
-  This class cannot be created from `Instance.New`
+  This class cannot be created from `Instance.new`
 </Warning>
 
 ## Properties
@@ -20,27 +20,27 @@ print(workspace.Part.Name) -- outputs the name which would be "Part" here.
 ```
 
 ### `ClassName: string`
-The classname.
+The classname of the instance.
 
 ### `Parent: Instance`
 The parent of the instance inside the game.
 
-### `Archivable: boolean`
-If the instance is serializable or not. Default: true. 
-
 ---
 
-## Methods 
-### `static` `New(classType: string): Instance`
+## Constructors
+### `Instance.new(className: string, parent: Instance?): Instance`
+Creates a new instance of the given class. Optionally parents it to `parent`.
 Example:
 ```lua
-local part = Instance.New("Part")
+local part = Instance.new("Part")
 part.Parent = workspace
 ```
 
-### `Clone() : ()`
-Clones the instance and returns it. 
-Example:
+---
+
+## Methods
+### `Clone(): Instance`
+Clones the instance and returns it. Example:
 ```lua
 local part = workspace.Part
 local newPart = part:Clone()
@@ -48,23 +48,34 @@ newPart.Name = "ClonedPart"
 newPart.Parent = workspace
 ```
 
-### `GetChildren() : {Instance}`
-Returns a table containing all of the children instances of this instance.
+### `ClearAllChildren(): nil`
+Clears all of the instance's children.
 
-### `GetChildAt(index: number) : Instance?`
-Returns the child at the index number given.
+### `FindFirstChild(name: string): Instance?`
+Tries to find the child with the given name. Example:
+```lua
+local part: Instance? = workspace:FindFirstChild("Part")
+if not part then
+    print("Part was not found")
+else
+    print("Part exists!")
+end
+```
 
-### `GetDescendants() : {Instance}`
-Returns a table containing all of the descendants.
+### `FindFirstChild(name: string, recursive: boolean): Instance?`
+Tries to find the child with the given name. When `recursive` is true the search continues through descendants.
 
-### `GetParent() : Instance?`
-Returns the parent of the instance. Nil if none.
+### `FindFirstAncestor(name: string): Instance?`
+Works upward from the parent to find an ancestor with the given name.
 
-### `GetFullName(): string`
-Returns the full name of the instance. Example: `Workspace.Part`
+### `FindFirstAncestorOfClass(className: string): Instance?`
+Works upward to find the first ancestor whose `ClassName` matches the given string.
 
-### `Destroy() : ()`
-Destroys the instance from game. Do remember to NOT make use of any methods or properties after
+### `FindFirstAncestorWhichIsA(className: string): Instance?`
+Works upward to find the first ancestor that inherits from the given class.
+
+### `Destroy(): nil`
+Destroys the instance from the game. Do remember to NOT make use of any methods or properties after
 destroying an instance! Example:
 ```lua
 local part = workspace.Part
@@ -72,150 +83,103 @@ part:Destroy()
 ```
 
 ### `IsA(className: string): boolean`
-Returns a boolean if the instance is of type given. For example:
+Returns true if the instance is of the given type. Example:
 ```lua
 local part = workspace.Part
 print(part:IsA("Part")) -- will print true
 ```
 
-### `FindFirstChild(childName: string, recursive: boolean = false): Instance?`
-Tries to find the child with the name given in method. Example:
-```lua
-local part: Instance? = workspace:FindFirstChild("Part")
-if not part then 
-    print("Part was not found")
-else 
-    print("Part exists!")
-end
-```
-
-### `FindFirstChildOfClass(className: string): Instance?`
-Returns the first child whose `ClassName` matches the given string.
-
-### `FindFirstAncestor(ancestorName: string): Instance?`
-Works upward from the parent to find an ancestor with the specific name.
-
-### `FindFirstAncestorOfClass(className: string): Instance?`
-Works upward to find the first ancestor that inherits from a specific class.
-
-
-### `ClearAllChildren(): ()`
-Clears all of the Instance's children.
-
-### `WaitForChild(instanceName: string): Instance`
-Waits for the child with the given name. The script will yield till the instance is not found!
-If no instance is found and timeout occurs, a warning will be produced. 
-Example:
-```lua
-local doesntExist = workspace:WaitForChild("I dont exist") -- this will generate a warning 
-
-local exists = workspace:WaitForChild("Exists") -- it will wait till not found and once found it will return
-```
-
-### `WaitForChild(instanceName: string, timeout: number): Instance?`
-Waits for the child with the given name. The script will yield till the instance is not found or if the given timeout occurs.
-
-### `IsAncestorOf(instance: Instance): boolean`
-Returns true if the instance is an ancestor of the given descendant.
-
 ### `IsDescendantOf(ancestor: Instance): boolean`
-Example:
+Returns true if the instance is a descendant of the given ancestor. Example:
 ```lua
 print(workspace.Part:IsDescendantOf(workspace)) -- will be true
 ```
 
-### `AddTag(tagName: string): ()`
-Adds the tag onto the instance. Tags added from the server-side will replicate to all of the connected clients.
+### `GetAttribute(name: string): any`
+Returns the value of the attribute with the given name, or nil if it does not exist.
+
+### `SetAttribute(name: string, value: any): nil`
+Sets the value of the attribute with the given name.
+
+### `GetAttributes(): { [string]: any }`
+Returns a table of all attributes on the instance keyed by name.
+
+### `AddTag(tag: string): boolean`
+Adds the tag to the instance. Tags added from the server-side will replicate to all of the connected clients.
 Example:
 ```lua
 workspace.Part:AddTag("MyTag")
 ```
 
-### `HasTag(tagName: string): boolean`
-Returns true if the given instance has the given tag. 
-Example:
-```lua
-workspace.Part:HasTag("MyTag")
-```
-
-### `GetTags(): { any }`
-Returns all the tags associated with the instance.
-
-
-### `RemoveTag(tagName: string): ()`
+### `RemoveTag(tag: string): nil`
 Removes the tag from the instance, if found. Tags removed from the server-side will replicate to all of the connected clients.
 Example:
 ```lua
 workspace.Part:RemoveTag("MyTag")
 ```
-Note: It will not error or generate any warnings.
+
+### `WaitForChild(name: string): Instance`
+Waits for the child with the given name. The script will yield until the instance is found. Example:
+```lua
+local exists = workspace:WaitForChild("Exists") -- yields until found, then returns
+```
+
+### `WaitForChild(name: string, timeout: number): Instance?`
+Waits for the child with the given name, yielding until it is found or the given timeout occurs.
+
+### `GetChildren(): { Instance }`
+Returns a table containing all of the children instances of this instance.
+
+### `GetDescendants(): { Instance }`
+Returns a table containing all of the descendants of this instance.
+
+### `GetFullName(): string`
+Returns the full name of the instance. Example: `Workspace.Part`
+
+### `GetTags(): { any }`
+Returns all the tags associated with the instance.
+
+### `HasTag(tag: string): boolean`
+Returns true if the instance has the given tag. Example:
+```lua
+workspace.Part:HasTag("MyTag")
+```
 
 ---
 
 ## Events
-### `ChildAdded: Instance`
-The event is fired whenever a new child is added to the instance. Example:
+### `ChildAdded: Event<Instance>`
+Fired whenever a new child is added to the instance. Example:
 ```lua
 workspace.Part.ChildAdded:Connect(function(childAdded: Instance)
     print("Child added named: " .. childAdded.Name)
 end)
-
-local newPart: Part = Instance.New("Part")
-newPart.Name = "newPart"
-newPart.Parent = workspace.Part
-```
-This will print:
-```
-Child added named: newPart
 ```
 
-
-### `ChildRemoved: Instance`
-The event is fired whenever a child is no longer a child to the instance. Example:
+### `ChildRemoved: Event<Instance>`
+Fired whenever a child is no longer a child of the instance. Example:
 ```lua
 workspace.Part.ChildRemoved:Connect(function(childRemoved: Instance)
     print("Child removed named: " .. childRemoved.Name)
 end)
-
-workspace.Part.newPart.Parent = nil
-```
-This will print:
-```
-Child removed named: newPart
 ```
 
-### `Destroying: ()`
-The event is fired whenever `Destroy()` is called of this instance.
+### `ChildrenCleared: Event`
+Fired whenever all children of the instance are cleared.
 
-### `AncestryChanged: ()`
-The event is fired whenever a child is added or removed.
+### `AncestryChanged: Event<Instance, Instance?>`
+Fired whenever the instance's ancestry changes. Passes the affected instance and its new parent.
 
-### `PropertyChanged: string, any`
-The event is fired whenever the property of the instance changes. Example:
+### `AttributeChanged: Event<string>`
+Fired whenever an attribute of the instance changes. Passes the name of the changed attribute.
+
+### `PropertyChanged: Event<string, any>`
+Fired whenever a property of the instance changes. Example:
 ```lua
 workspace.Part.PropertyChanged:Connect(function(propertyName: string, newValue: any)
-    print("Property changed called: " .. propertyName .. " with value " .. newValue)
-end)
-
-Name = "NewName"
-```
-This will print:
-```
-Property changed called: Name with value NewName
-```
-
-### `TagAdded: string`
-The event is fired whener a tag is added to this instance. Example:
-```lua
-workspace.Part.TagAdded:Connect(function(tag: string)
-    print("Tag added: " .. tag)
+    print("Property changed: " .. propertyName)
 end)
 ```
 
-### `TagRemoved: string`
-The event is fired whener a tag is removed from this instance. Example:
-```lua
-workspace.Part.TagRemoved:Connect(function(tag: string)
-    print("Tag removed: " .. tag)
-end)
-```
+### `Destroying: Event`
+Fired whenever `Destroy()` is called on this instance.

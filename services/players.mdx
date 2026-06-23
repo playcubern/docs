@@ -3,3 +3,24 @@ title: "Players"
 description: "Players"
 icon: "users"
 ---
+
+<Note iconType="regular">
+  Players inherits Instance.
+</Note>
+
+The Players service holds every [Player](/classes/player) currently in the game.
+
+## Properties
+### `LocalPlayer: Player`
+The [Player](/classes/player) that owns the local client.
+
+---
+
+## Methods
+### `GetPlayers(): { Player }`
+Returns a table of all [Player](/classes/player) instances currently in the game. Example:
+```lua
+for _, player in game.Players:GetPlayers() do
+    print(player.Name)
+end
+```

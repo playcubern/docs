@@ -10,14 +10,22 @@ icon: "brush"
 
 ## Properties
 ### `R: number`
-The R value fo the color.
+The red component of the color.
 
 ### `G: number`
-The G value fo the color.
+The green component of the color.
 
 ### `B: number`
-The B value fo the color.
+The blue component of the color.
+
+---
 
 ## Constructors
-### `Color3.new(r: number?, g: number?, b: number?): Color3`
+### `Color3.new(red: number?, green: number?, blue: number?): Color3`
 Creates a new Color3. All parameters default to 0 if not provided.
+
+### `Color3.fromHex(hex: string): Color3`
+Creates a new Color3 from a hexadecimal color string. Example:
+```lua
+local black = Color3.fromHex("#000000")
+```

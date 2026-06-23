@@ -10,13 +10,117 @@ icon: "arrow-up-left"
 
 ## Properties
 ### `X: number`
-The X coordinate of the UI instance inside game.
+The X coordinate of the vector in 2D space.
 
 ### `Y: number`
-The Y coordinate of the UI instance inside game.
+The Y coordinate of the vector in 2D space.
+
+### `Magnitude: number`
+The length/magnitude of the vector. Calculated as `sqrt(X² + Y²)`.
+
+### `Unit: Vector2`
+A normalized version of the vector (magnitude = 1).
+
+<Note iconType="regular">
+  The lowercase aliases `x`, `y`, `magnitude` and `unit` are also available.
+</Note>
 
 ---
 
 ## Constructors
 ### `Vector2.new(x: number?, y: number?): Vector2`
 Creates a new Vector2. All parameters default to 0 if not provided.
+
+---
+
+## Statics
+### `Vector2.zero: Vector2`
+A Vector2 with all components set to 0.
+
+### `Vector2.one: Vector2`
+A Vector2 with all components set to 1.
+
+### `Vector2.xAxis: Vector2`
+A Vector2 pointing along the X axis `(1, 0)`.
+
+### `Vector2.yAxis: Vector2`
+A Vector2 pointing along the Y axis `(0, 1)`.
+
+### `Vector2.min(...: Vector2): Vector2`
+Returns a Vector2 with the smallest component out of each of the given vectors.
+
+### `Vector2.max(...: Vector2): Vector2`
+Returns a Vector2 with the largest component out of each of the given vectors.
+
+---
+
+## Methods
+### `Abs(): Vector2`
+Returns a Vector2 with the absolute value of each component.
+
+### `Angle(other: Vector2, isSigned: boolean): number`
+Returns the angle in radians between this vector and `other`. When `isSigned` is true the result is signed.
+
+### `Ceil(): Vector2`
+Returns a Vector2 with each component rounded up to the nearest integer.
+
+### `Cross(other: Vector2): number`
+Returns the 2D cross product of this vector and `other`.
+
+### `Dot(v: Vector2): number`
+Returns the dot product of this vector and `v`.
+
+### `Floor(): Vector2`
+Returns a Vector2 with each component rounded down to the nearest integer.
+
+### `FuzzyEq(other: Vector2, epsilon: number?): boolean`
+Returns true if this vector and `other` are approximately equal within the optional `epsilon`.
+
+### `Lerp(v: Vector2, alpha: number): Vector2`
+Linearly interpolates between this vector and `v` by `alpha`.
+
+### `Max(...: Vector2): Vector2`
+Returns a Vector2 with the largest component out of this vector and the given vectors.
+
+### `Min(...: Vector2): Vector2`
+Returns a Vector2 with the smallest component out of this vector and the given vectors.
+
+### `Sign(): Vector2`
+Returns a Vector2 with each component replaced by its sign (`-1`, `0` or `1`).
+
+---
+
+## Operators
+
+### Addition: `+`
+```lua
+local sum = Vector2.new(1, 2) + Vector2.new(3, 4)  -- Vector2(4, 6)
+```
+
+### Subtraction: `-`
+```lua
+local diff = Vector2.new(4, 6) - Vector2.new(1, 2)  -- Vector2(3, 4)
+```
+
+### Multiplication: `*`
+Multiplies by another Vector2 or by a number.
+```lua
+local scaled = Vector2.new(1, 2) * 2  -- Vector2(2, 4)
+```
+
+### Division: `/`
+Divides by another Vector2 or by a number.
+```lua
+local halved = Vector2.new(2, 4) / 2  -- Vector2(1, 2)
+```
+
+### Floor Division: `//`
+Divides by another Vector2 or by a number, rounding each component down.
+```lua
+local floored = Vector2.new(5, 7) // 2  -- Vector2(2, 3)
+```
+
+### Unary Minus: `-`
+```lua
+local negated = -Vector2.new(1, 2)  -- Vector2(-1, -2)
+```

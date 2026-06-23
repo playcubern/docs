@@ -1,0 +1,30 @@
+---
+title: "UiTextButton"
+description: "UiTextButton"
+icon: "rectangle"
+---
+
+<Note iconType="regular">
+  UiTextButton inherits UiView.
+</Note>
+
+## Properties
+### `Text: string`
+The text displayed on the button.
+
+### `TextSize: number`
+The size of the text in pixels.
+
+### `TextColor: Color3`
+The color of the text.
+
+---
+
+## Events
+### `MouseButton1Down`
+Fired when the left mouse button is pressed on the button. Example:
+```lua
+script.Parent.MouseButton1Down:Connect(function()
+    print("Button pressed")
+end)
+```
