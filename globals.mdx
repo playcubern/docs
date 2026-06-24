@@ -1,0 +1,32 @@
+---
+title: "Globals"
+description: "Global variables and functions available in every script"
+icon: "globe"
+---
+
+These globals are available in every script without having to reference any
+instance.
+
+## Variables
+### `game: Game`
+The root of the data model. See [Game](/services/game).
+
+### `workspace: Workspace`
+A shortcut to the [Workspace](/services/workspace) service, which holds
+everything in the 3D world.
+
+### `script: LuaSourceContainer`
+A reference to the script that is currently running. See
+[LuaSourceContainer](/abstract-classes/luasourcecontainer).
+
+---
+
+## Functions
+### `wait(delay: number?): ()`
+Yields the current thread for the given number of seconds before resuming. If
+`delay` is omitted it yields for the shortest possible time. Example:
+```lua
+print("Waiting...")
+wait(3)
+print("3 seconds later")
+```

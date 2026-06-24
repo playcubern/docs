@@ -24,7 +24,8 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "the-basics"
+              "the-basics",
+              "globals"
             ]
           },
           {

@@ -14,6 +14,9 @@ The Players service holds every [Player](/classes/player) currently in the game.
 ### `LocalPlayer: Player`
 The [Player](/classes/player) that owns the local client.
 
+### `PlayersCount: number`
+The number of [Player](/classes/player) instances currently in the game.
+
 ---
 
 ## Methods
@@ -23,4 +26,23 @@ Returns a table of all [Player](/classes/player) instances currently in the game
 for _, player in game.Players:GetPlayers() do
     print(player.Name)
 end
+```
+
+---
+
+## Events
+### `PlayerAdded: Event<Player>`
+Fired whenever a [Player](/classes/player) joins the game. Passes the player that joined. Example:
+```lua
+game.Players.PlayerAdded:Connect(function(player: Player)
+    print(player.Name .. " joined the game")
+end)
+```
+
+### `PlayerRemoved: Event<Player>`
+Fired whenever a [Player](/classes/player) leaves the game. Passes the player that left. Example:
+```lua
+game.Players.PlayerRemoved:Connect(function(player: Player)
+    print(player.Name .. " left the game")
+end)
 ```
