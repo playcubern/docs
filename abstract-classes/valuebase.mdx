@@ -1,0 +1,31 @@
+---
+title: "ValueBase"
+description: "ValueBase is the abstract class for instances that hold a single value"
+icon: "database"
+---
+
+<Note iconType="regular">
+  ValueBase inherits Instance.
+</Note>
+
+<Warning iconType="regular">
+  This class cannot be created from `Instance.new`
+</Warning>
+
+<Warning iconType="regular">
+  This is an abstract class.
+</Warning>
+
+The base class for instances that store a single value, such as
+[StringValue](/classes/stringvalue), [NumberValue](/classes/numbervalue),
+[BoolValue](/classes/boolvalue), [ColorValue](/classes/colorvalue),
+[Vector3Value](/classes/vector3value) and [Vector2Value](/classes/vector2value).
+
+## Events
+### `Changed: Event`
+Fired whenever the `Value` of the instance changes. Example:
+```lua
+script.Parent.Changed:Connect(function()
+    print("Value changed")
+end)
+```

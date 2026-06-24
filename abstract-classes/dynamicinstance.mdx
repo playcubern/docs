@@ -34,3 +34,17 @@ Whether the instance is anchored. Anchored instances are not affected by physics
 
 ### `CanCollide: boolean`
 Whether the instance can collide with other instances.
+
+---
+
+## Events
+### `Touched: Event<DynamicInstance>`
+Fired whenever another DynamicInstance begins touching this instance. Passes the instance that started the touch. Example:
+```lua
+workspace.Part.Touched:Connect(function(other: DynamicInstance)
+    print(other.Name .. " touched the part")
+end)
+```
+
+### `TouchEnded: Event<DynamicInstance>`
+Fired whenever another DynamicInstance stops touching this instance. Passes the instance that stopped touching.

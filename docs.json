@@ -62,6 +62,7 @@
               "abstract-classes/basescript",
               "abstract-classes/serviceprovider",
               "abstract-classes/luasourcecontainer",
+              "abstract-classes/valuebase",
               "abstract-classes/uiinstance",
               "abstract-classes/uiview"
             ]
@@ -77,7 +78,8 @@
               "services/localscripts",
               "services/scripts",
               "services/environment",
-              "services/playergui"
+              "services/playergui",
+              "services/runservice"
             ]
           },
           {
@@ -122,6 +124,23 @@
               "classes/localscript",
               "classes/script",
               "classes/modulescript"
+            ]
+          },
+          {
+            "group": "Values",
+            "pages": [
+              "classes/stringvalue",
+              "classes/numbervalue",
+              "classes/boolvalue",
+              "classes/colorvalue",
+              "classes/vector3value",
+              "classes/vector2value"
+            ]
+          },
+          {
+            "group": "Networking",
+            "pages": [
+              "classes/remoteevent"
             ]
           }
         ]

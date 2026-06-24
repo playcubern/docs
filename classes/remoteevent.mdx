@@ -1,0 +1,46 @@
+---
+title: "RemoteEvent"
+description: "RemoteEvent"
+icon: "tower-broadcast"
+---
+
+<Note iconType="regular">
+  RemoteEvent inherits Instance.
+</Note>
+
+A RemoteEvent allows you to send messages between the server and clients. The server fires events to clients and clients fire events to the server, enabling networked communication.
+
+## Methods
+### `FireServer(...: any): boolean`
+Fires the `OnServerEvent` event on the server from a client, passing any arguments along. Example:
+```lua
+script.Parent:FireServer("hello", 123)
+```
+
+### `FireClient(player: Player, ...: any): boolean`
+Fires the `OnClientEvent` event on the given [Player](/classes/player)'s client from the server, passing any arguments along. Example:
+```lua
+script.Parent:FireClient(player, "hello")
+```
+
+### `FireAllClients(...: any): boolean`
+Fires the `OnClientEvent` event on every connected client from the server, passing any arguments along.
+
+---
+
+## Events
+### `OnServerEvent: Event<(Player, ...any)>`
+Fired on the server when a client calls `FireServer`. The first argument is the [Player](/classes/player) that fired the event, followed by any arguments they passed. Example:
+```lua
+script.Parent.OnServerEvent:Connect(function(player: Player, ...)
+    print(player.Name .. " fired the event")
+end)
+```
+
+### `OnClientEvent: Event`
+Fired on a client when the server calls `FireClient` or `FireAllClients`. Passes along any arguments sent by the server. Example:
+```lua
+script.Parent.OnClientEvent:Connect(function(...)
+    print("Received an event from the server")
+end)
+```

@@ -1,0 +1,43 @@
+---
+title: "RunService"
+description: "RunService"
+icon: "play"
+---
+
+<Note iconType="regular">
+  RunService inherits Instance.
+</Note>
+
+The RunService provides information about the run context (server or client) and exposes the per-frame events used to run code in step with the game loop.
+
+## Methods
+### `IsServer(): boolean`
+Returns true if the current code is running on the server. Example:
+```lua
+if game:GetService("RunService"):IsServer() then
+    print("Running on the server")
+end
+```
+
+### `IsClient(): boolean`
+Returns true if the current code is running on a client.
+
+### `IsRunning(): boolean`
+Returns true if the game is currently running.
+
+---
+
+## Events
+### `PreSimulation: Event<number>`
+Fired every frame before the physics simulation steps. Passes the time in seconds since the previous step (delta time). Example:
+```lua
+game:GetService("RunService").PreSimulation:Connect(function(deltaTime: number)
+    print("Stepping physics, dt = " .. deltaTime)
+end)
+```
+
+### `PreAnimation: Event<number>`
+Fired every frame before animations are updated. Passes the delta time in seconds.
+
+### `PreRender: Event<number>`
+Fired every frame before the world is rendered. Passes the delta time in seconds.
