@@ -106,6 +106,7 @@
             "group": "UI",
             "pages": [
               "classes/uipanel",
+              "classes/uilayer",
               "classes/uilabel",
               "classes/uiimagelabel",
               "classes/uitextbutton",
