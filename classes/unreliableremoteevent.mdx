@@ -1,14 +1,14 @@
 ---
-title: "RemoteEvent"
-description: "RemoteEvent"
+title: "UnreliableRemoteEvent"
+description: "UnreliableRemoteEvent"
 icon: "tower-broadcast"
 ---
 
 <Note iconType="regular">
-  RemoteEvent inherits NetworkEvent.
+  UnreliableRemoteEvent inherits NetworkEvent.
 </Note>
 
-A RemoteEvent allows you to send messages between the server and clients. The server fires events to clients and clients fire events to the server, enabling networked communication.
+An UnreliableRemoteEvent works like a [RemoteEvent](/classes/remoteevent), but its messages are not guaranteed to arrive or to arrive in order. In exchange it has lower network overhead, making it a good fit for frequent, non-critical updates where losing the occasional message is acceptable — for example continuous position or effect updates.
 
 ## Methods
 ### `FireServer(...: any): boolean`
@@ -33,7 +33,7 @@ Fires the `OnClientEvent` event on every connected client from the server, passi
 Fired on the server when a client calls `FireServer`. The first argument is the [Player](/classes/player) that fired the event, followed by any arguments they passed. Example:
 ```lua
 script.Parent.OnServerEvent:Connect(function(player: Player, ...)
-    print(player.Name .. " fired the event")
+    print(player.Username .. " fired the event")
 end)
 ```
 

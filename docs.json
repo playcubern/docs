@@ -65,7 +65,8 @@
               "abstract-classes/luasourcecontainer",
               "abstract-classes/valuebase",
               "abstract-classes/uiinstance",
-              "abstract-classes/uiview"
+              "abstract-classes/uiview",
+              "abstract-classes/networkevent"
             ]
           },
           {
@@ -80,7 +81,8 @@
               "services/scripts",
               "services/environment",
               "services/playergui",
-              "services/runservice"
+              "services/runservice",
+              "services/chatservice"
             ]
           },
           {
@@ -142,6 +144,7 @@
           {
             "group": "Networking",
             "pages": [
+              "classes/unreliableremoteevent",
               "classes/remoteevent"
             ]
           }

@@ -65,6 +65,12 @@ end
 ### `FindFirstChild(name: string, recursive: boolean): Instance?`
 Tries to find the child with the given name. When `recursive` is true the search continues through descendants.
 
+### `FindFirstChildOfClass(className: string): Instance?`
+Tries to find the first child whose `ClassName` matches the given string. Example:
+```lua
+local script = workspace.Part:FindFirstChildOfClass("Script")
+```
+
 ### `FindFirstAncestor(name: string): Instance?`
 Works upward from the parent to find an ancestor with the given name.
 
@@ -87,6 +93,12 @@ Returns true if the instance is of the given type. Example:
 ```lua
 local part = workspace.Part
 print(part:IsA("Part")) -- will print true
+```
+
+### `IsAncestorOf(descendant: Instance): boolean`
+Returns true if the instance is an ancestor of the given descendant. Example:
+```lua
+print(workspace:IsAncestorOf(workspace.Part)) -- will be true
 ```
 
 ### `IsDescendantOf(ancestor: Instance): boolean`
