@@ -1,0 +1,32 @@
+---
+title: "DataStore"
+description: "DataStore"
+icon: "hard-drive"
+---
+
+A `DataStore` is a persistent key-value store used to save and load data that
+survives between sessions. DataStores are obtained from the
+[DataStoreService](/services/datastoreservice) with `GetDataStore`.
+
+## Methods
+### `GetAsync(key: string): any`
+Returns the value stored at the given key, or `nil` if no value has been set.
+Example:
+```lua
+local store = game:GetService("DataStoreService"):GetDataStore("PlayerData")
+
+local coins = store:GetAsync("coins")
+print(coins)
+```
+
+### `SetAsync(key: string, value: any): boolean`
+Stores `value` at the given key. Returns `true` if the value was saved
+successfully. Example:
+```lua
+local store = game:GetService("DataStoreService"):GetDataStore("PlayerData")
+
+local success = store:SetAsync("coins", 100)
+if success then
+    print("Saved!")
+end
+```

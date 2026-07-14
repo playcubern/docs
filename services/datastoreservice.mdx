@@ -1,0 +1,21 @@
+---
+title: "DataStoreService"
+description: "DataStoreService provides access to persistent data storage."
+icon: "database"
+---
+
+<Note iconType="regular">
+  DataStoreService inherits Instance.
+</Note>
+
+The DataStoreService provides access to [DataStore](/types/datastore) objects,
+which are used to save and load data that persists between sessions.
+
+## Methods
+### `GetDataStore(name: string): DataStore`
+Returns the [DataStore](/types/datastore) with the given name, creating it if it
+does not already exist. Example:
+```lua
+local dataStoreService = game:GetService("DataStoreService")
+local store = dataStoreService:GetDataStore("PlayerData")
+```
