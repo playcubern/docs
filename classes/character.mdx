@@ -1,0 +1,61 @@
+---
+title: "Character"
+description: "Character"
+icon: "person"
+---
+
+<Note iconType="regular">
+  Character inherits DynamicInstance.
+</Note>
+
+Represents a [Player](/classes/player)'s avatar in the 3D world. It controls the
+appearance of the avatar, including which body parts and accessories are worn
+and their colors. Access it through a player's
+[`Character`](/classes/player) property. In addition to everything inherited from
+[DynamicInstance](/abstract-classes/dynamicinstance), it has the following members.
+
+## Properties
+### `HeadId: number`
+The identifier of the head worn by the character.
+
+### `TorsoId: number`
+The identifier of the torso worn by the character.
+
+### `FaceId: number`
+The identifier of the face worn by the character.
+
+### `ShirtId: number`
+The identifier of the shirt worn by the character.
+
+### `Hat1: number`
+The identifier of the character's first hat accessory.
+
+### `Hat2: number`
+The identifier of the character's second hat accessory.
+
+### `Hat3: number`
+The identifier of the character's third hat accessory.
+
+### `Hat4: number`
+The identifier of the character's fourth hat accessory.
+
+### `HeadColor: Color3`
+The color of the character's head. Example:
+```lua
+game.Players.LocalPlayer.Character.HeadColor = Color3.fromHex("#ffcc99")
+```
+
+### `TorsoColor: Color3`
+The color of the character's torso.
+
+### `RightArmColor: Color3`
+The color of the character's right arm.
+
+### `LeftArmColor: Color3`
+The color of the character's left arm.
+
+### `RightLegColor: Color3`
+The color of the character's right leg.
+
+### `LeftLegColor: Color3`
+The color of the character's left leg.

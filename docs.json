@@ -91,6 +91,7 @@
             "group": "Gameplay",
             "pages": [
               "classes/player",
+              "classes/character",
               "classes/spawnpoint"
             ]
           },

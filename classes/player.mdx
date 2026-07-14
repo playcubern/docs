@@ -5,10 +5,10 @@ icon: "user"
 ---
 
 <Note iconType="regular">
-  Player inherits DynamicInstance.
+  Player inherits Instance.
 </Note>
 
-Represents a player in the game. In addition to everything inherited from [DynamicInstance](/abstract-classes/dynamicinstance), it has the following members.
+Represents a player in the game. In addition to everything inherited from [Instance](/abstract-classes/instance), it has the following members.
 
 ## Properties
 ### `Username: string`
@@ -19,3 +19,11 @@ The unique identifier of the player's account.
 
 ### `AnimationState: number`
 The current animation state of the player.
+
+### `Character: Character`
+The [Character](/classes/character) that represents the player's avatar in the
+3D world. Example:
+```lua
+local character = game.Players.LocalPlayer.Character
+character.HeadColor = Color3.fromHex("#ff0000")
+```
