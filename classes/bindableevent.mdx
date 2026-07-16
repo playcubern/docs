@@ -1,0 +1,34 @@
+---
+title: "BindableEvent"
+description: "BindableEvent"
+icon: "share-nodes"
+---
+
+<Note iconType="regular">
+  BindableEvent inherits Instance.
+</Note>
+
+A BindableEvent lets you send messages between scripts running in the same
+context. Unlike a [RemoteEvent](/classes/remoteevent), it does not cross the
+server/client boundary — it is used purely for communication on the same
+machine. Call `Fire` to raise the event and connect to `Event` to listen for it.
+
+## Methods
+### `Fire(...: any): nil`
+Fires the `Event`, passing any arguments along to every connected listener.
+Example:
+```lua
+script.Parent:Fire("hello", 123)
+```
+
+---
+
+## Events
+### `Event: Event`
+Fired whenever `Fire` is called on this instance. Passes along any arguments
+that were given to `Fire`. Example:
+```lua
+script.Parent.Event:Connect(function(...)
+    print("Event fired with:", ...)
+end)
+```

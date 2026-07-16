@@ -98,7 +98,8 @@
           {
             "group": "3D Objects",
             "pages": [
-              "classes/part"
+              "classes/part",
+              "classes/bodypart"
             ]
           },
           {
@@ -148,7 +149,8 @@
             "group": "Networking",
             "pages": [
               "classes/unreliableremoteevent",
-              "classes/remoteevent"
+              "classes/remoteevent",
+              "classes/bindableevent"
             ]
           }
         ]
