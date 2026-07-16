@@ -30,3 +30,15 @@ if success then
     print("Saved!")
 end
 ```
+
+### `RemoveAsync(key: string): boolean`
+Removes the value stored at the given key. Returns `true` if the value was
+removed successfully. Example:
+```lua
+local store = game:GetService("DataStoreService"):GetDataStore("PlayerData")
+
+local success = store:RemoveAsync("coins")
+if success then
+    print("Removed!")
+end
+```
