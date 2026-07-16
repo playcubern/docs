@@ -42,3 +42,12 @@ if success then
     print("Removed!")
 end
 ```
+
+### `Disconnect(): nil`
+Disconnects the DataStore, releasing it so it is no longer kept in memory. Do not
+call any further methods on the DataStore after disconnecting it. Example:
+```lua
+local store = game:GetService("DataStoreService"):GetDataStore("PlayerData")
+
+store:Disconnect()
+```
