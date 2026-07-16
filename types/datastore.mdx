@@ -10,7 +10,7 @@ survives between sessions. DataStores are obtained from the
 
 ## Methods
 ### `GetAsync(key: string): any`
-Returns the value stored at the given key, or `nil` if no value has been set.
+Returns the value stored at the given key, or `nil` if no value has been set. The return value is cached for 4 seconds.
 Example:
 ```lua
 local store = game:GetService("DataStoreService"):GetDataStore("PlayerData")
