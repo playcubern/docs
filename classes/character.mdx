@@ -15,6 +15,31 @@ and their colors. Access it through a player's
 [DynamicInstance](/abstract-classes/dynamicinstance), it has the following members.
 
 ## Properties
+### `Health: number`
+The current health of the character. When it reaches `0`, the character dies.
+Example:
+```lua
+game.Players.LocalPlayer.Character.Health = 50
+```
+
+### `MaxHealth: number`
+The maximum health the character can have. Example:
+```lua
+game.Players.LocalPlayer.Character.MaxHealth = 200
+```
+
+### `WalkSpeed: number`
+How fast the character moves, in studs per second. Example:
+```lua
+game.Players.LocalPlayer.Character.WalkSpeed = 32
+```
+
+### `JumpPower: number`
+How high the character can jump. Example:
+```lua
+game.Players.LocalPlayer.Character.JumpPower = 75
+```
+
 ### `HeadId: number`
 The identifier of the head worn by the character.
 
@@ -59,3 +84,14 @@ The color of the character's right leg.
 
 ### `LeftLegColor: Color3`
 The color of the character's left leg.
+
+---
+
+## Events
+### `HealthChanged: Event`
+Fired whenever the character's `Health` changes. Example:
+```lua
+game.Players.LocalPlayer.Character.HealthChanged:Connect(function(health)
+    print("Health is now", health)
+end)
+```
