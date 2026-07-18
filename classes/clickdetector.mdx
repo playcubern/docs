@@ -31,6 +31,9 @@ script.Parent.Active = false
 
 ## Events
 ### `MouseHoverEnter: Event`
+<Note iconType="regular">
+  Only fires on the client.
+</Note>
 Fired when a player's mouse begins hovering over the object. Example:
 ```lua
 script.Parent.MouseHoverEnter:Connect(function(player)
@@ -39,6 +42,9 @@ end)
 ```
 
 ### `MouseHoverLeave: Event`
+<Note iconType="regular">
+  Only fires on the client.
+</Note>
 Fired when a player's mouse stops hovering over the object. Example:
 ```lua
 script.Parent.MouseHoverLeave:Connect(function(player)
@@ -47,6 +53,9 @@ end)
 ```
 
 ### `MouseClick: Event`
+<Note iconType="regular">
+  Only fires on the server.
+</Note>
 Fired when a player clicks the object with the left mouse button. Example:
 ```lua
 script.Parent.MouseClick:Connect(function(player)
@@ -55,6 +64,9 @@ end)
 ```
 
 ### `RightMouseClick: Event`
+<Note iconType="regular">
+  Only fires on the server.
+</Note>
 Fired when a player clicks the object with the right mouse button. Example:
 ```lua
 script.Parent.RightMouseClick:Connect(function(player)

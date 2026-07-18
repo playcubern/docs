@@ -92,15 +92,15 @@
             "pages": [
               "classes/player",
               "classes/character",
-              "classes/spawnpoint"
+              "classes/spawnpoint",
+              "classes/clickdetector"
             ]
           },
           {
             "group": "3D Objects",
             "pages": [
               "classes/part",
-              "classes/bodypart",
-              "classes/clickdetector"
+              "classes/bodypart"
             ]
           },
           {
