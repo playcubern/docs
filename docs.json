@@ -99,7 +99,8 @@
             "group": "3D Objects",
             "pages": [
               "classes/part",
-              "classes/bodypart"
+              "classes/bodypart",
+              "classes/clickdetector"
             ]
           },
           {
