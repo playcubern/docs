@@ -51,3 +51,13 @@ workspace.CurrentCamera.MinZoom = 5
   This property is read-only.
 </Note>
 The size of the viewport the camera renders to.
+
+---
+
+## Methods
+### `WorldToScreenPoint(pos: Vector3): Vector2`
+Converts a 3D world position into its 2D position on the screen. Example:
+```lua
+local screenPos = workspace.CurrentCamera:WorldToScreenPoint(workspace.Part.Position)
+print(screenPos.X, screenPos.Y)
+```
