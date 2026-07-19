@@ -119,7 +119,8 @@
               "classes/uilabel",
               "classes/uiimagelabel",
               "classes/uitextbutton",
-              "classes/uitextinput"
+              "classes/uitextinput",
+              "classes/uiviewport"
             ]
           },
           {
