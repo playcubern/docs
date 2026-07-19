@@ -1,0 +1,26 @@
+---
+title: "CameraMode"
+description: "CameraMode"
+icon: "video"
+---
+
+The `CameraMode` enum defines how a [Camera](/classes/camera) is controlled. Each
+value is an [EnumItem](/types/enumitem) accessed through `Enum.CameraMode`.
+
+## Values
+### `Enum.CameraMode.Custom`
+The camera is controlled automatically by the engine.
+
+### `Enum.CameraMode.Scriptable`
+The camera is controlled entirely by scripts.
+
+---
+
+## Methods
+### `GetEnumItems(): { CameraMode }`
+Returns a table of every `CameraMode` value. Example:
+```lua
+for _, mode in Enum.CameraMode:GetEnumItems() do
+    print(mode.Name)
+end
+```

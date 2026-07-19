@@ -1,0 +1,38 @@
+---
+title: "Camera"
+description: "Camera"
+icon: "video"
+---
+
+<Note iconType="regular">
+  Camera inherits DynamicInstance.
+</Note>
+
+Controls how the 3D world is viewed. The active camera is accessed through the
+[Workspace](/services/workspace)'s [`CurrentCamera`](/services/workspace)
+property. In addition to everything inherited from
+[DynamicInstance](/abstract-classes/dynamicinstance), it has the following members.
+
+## Properties
+### `Target: DynamicInstance`
+The object the camera follows or points at. Example:
+```lua
+workspace.CurrentCamera.Target = workspace.Part
+```
+
+### `CameraMode: CameraMode`
+How the camera is controlled. See the [CameraMode](/enums/cameramode) enum for
+the available values. Example:
+```lua
+workspace.CurrentCamera.CameraMode = Enum.CameraMode.Scriptable
+```
+
+### `FieldOfView: number`
+The camera's field of view, in degrees. Larger values show more of the world.
+Example:
+```lua
+workspace.CurrentCamera.FieldOfView = 90
+```
+
+### `ViewportSize: Vector3`
+The size of the viewport the camera renders to.
