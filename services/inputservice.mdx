@@ -1,0 +1,47 @@
+---
+title: "InputService"
+description: "InputService"
+icon: "computer-mouse"
+---
+
+<Note iconType="regular">
+  InputService inherits Instance.
+</Note>
+
+The InputService provides access to the player's input, such as the current
+mouse position and helpers for converting screen positions into world-space
+rays.
+
+## Properties
+### `MousePosition: Vector2`
+The current position of the mouse cursor on the screen. Example:
+```lua
+local mousePos = game:GetService("InputService").MousePosition
+print(mousePos.X, mousePos.Y)
+```
+
+---
+
+## Methods
+### `ProjectRayOrigin(screenPosition: Vector2): Vector3`
+Returns the world-space origin of a ray cast from the given screen position,
+starting at the camera. Example:
+```lua
+local inputService = game:GetService("InputService")
+local origin = inputService:ProjectRayOrigin(inputService.MousePosition)
+```
+
+### `ProjectRayNormal(screenPosition: Vector2): Vector3`
+Returns the world-space direction of a ray cast from the given screen
+position. Used together with `ProjectRayOrigin` to raycast from the mouse.
+Example:
+```lua
+local inputService = game:GetService("InputService")
+local origin = inputService:ProjectRayOrigin(inputService.MousePosition)
+local direction = inputService:ProjectRayNormal(inputService.MousePosition)
+
+local result = workspace:Raycast(origin, direction * 1000)
+if result then
+    print("Hit", result.Instance.Name)
+end
+```

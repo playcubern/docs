@@ -46,7 +46,8 @@
               "types/event",
               "types/eventconnection",
               "types/enumitem",
-              "types/datastore"
+              "types/datastore",
+              "types/raycastresult"
             ]
           },
           {
@@ -83,6 +84,7 @@
               "services/scripts",
               "services/environment",
               "services/playergui",
+              "services/inputservice",
               "services/runservice",
               "services/chatservice",
               "services/datastoreservice"

@@ -13,3 +13,21 @@ The `workspace` holds everything that exists in the 3D world.
 ## Properties
 ### `CurrentCamera: Camera`
 The [Camera](/classes/camera) currently being used to render the world.
+
+---
+
+## Methods
+### `Raycast(origin: Vector3, direction: Vector3, maxDistance: number?, ignoreList: { Instance }?): RaycastResult?`
+Casts a ray from `origin` in `direction` and returns a
+[RaycastResult](/types/raycastresult) describing what it hit, or `nil` if
+nothing was hit. `maxDistance` limits how far the ray travels, and
+`ignoreList` excludes the given instances from the raycast. Example:
+```lua
+local origin = Vector3.new(0, 10, 0)
+local direction = Vector3.new(0, -1, 0)
+
+local result = workspace:Raycast(origin, direction, 100)
+if result then
+    print("Hit", result.Instance.Name, "at", result.Position)
+end
+```

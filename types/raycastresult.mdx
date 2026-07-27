@@ -1,0 +1,21 @@
+---
+title: "RaycastResult"
+description: "RaycastResult"
+icon: "crosshairs"
+---
+
+A `RaycastResult` describes what a ray hit. It is returned by
+[Workspace's](/services/workspace) `Raycast` method.
+
+## Properties
+### `Instance: DynamicInstance`
+The object that was hit by the ray.
+
+### `Position: Vector3`
+The world position where the ray hit the object.
+
+### `Normal: Vector3`
+The surface normal at the point of impact.
+
+### `Distance: number`
+The distance from the ray's origin to the hit position.
