@@ -31,8 +31,7 @@
           {
             "group": "Tutorials",
             "pages": [
-              "tutorials/collab-mode",
-              "tutorials/writing-a-plugin"
+              "tutorials/collab-mode"
             ]
           },
           {
@@ -160,21 +159,7 @@
             ]
           }
         ]
-      },
-
-      {
-        "tab": "Plugins",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "plugins/about"
-            ]
-          }
-
-        ]
       }
-
     ],
     "global": {
       "anchors": [
