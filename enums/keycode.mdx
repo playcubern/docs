@@ -1,0 +1,53 @@
+---
+title: "KeyCode"
+description: "KeyCode"
+icon: "keyboard"
+---
+
+The `KeyCode` enum identifies a key on the keyboard. Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.KeyCode`. It is used by
+[InputService's](/services/inputservice) `IsKeyDown`, `GetStringForKeyCode` and
+`GetKeyCodeFromString` methods.
+
+## Values
+
+### Special keys
+`Unknown`, `None`, `Backspace`, `Tab`, `Backtab`, `Enter`, `KpEnter`, `Escape`,
+`Space`, `Delete`, `Insert`, `Home`, `End`, `PageUp`, `PageDown`, `CapsLock`,
+`ScrollLock`, `NumLock`, `Print`, `Pause`, `SysReq`, `Clear`, `Menu`, `Shift`,
+`Ctrl`, `Alt`, `Meta`
+
+### Arrow keys
+`Up`, `Down`, `Left`, `Right`
+
+### Function keys
+`F1`, `F2`, `F3`, `F4`, `F5`, `F6`, `F7`, `F8`, `F9`, `F10`, `F11`, `F12`
+
+### Number row
+`Key0`, `Key1`, `Key2`, `Key3`, `Key4`, `Key5`, `Key6`, `Key7`, `Key8`, `Key9`
+
+### Letters
+`A`, `B`, `C`, `D`, `E`, `F`, `G`, `H`, `I`, `J`, `K`, `L`, `M`, `N`, `O`, `P`,
+`Q`, `R`, `S`, `T`, `U`, `V`, `W`, `X`, `Y`, `Z`
+
+### Numpad
+`Kp0`, `Kp1`, `Kp2`, `Kp3`, `Kp4`, `Kp5`, `Kp6`, `Kp7`, `Kp8`, `Kp9`, `KpAdd`,
+`KpSubtract`, `KpMultiply`, `KpDivide`, `KpPeriod`
+
+### Punctuation
+`Minus`, `Equal`, `BracketLeft`, `BracketRight`, `Backslash`, `Semicolon`,
+`Apostrophe`, `Comma`, `Period`, `Slash`, `QuoteLeft`
+
+Every value above is accessed as `Enum.KeyCode.<Name>`, for example
+`Enum.KeyCode.Space`.
+
+---
+
+## Methods
+### `GetEnumItems(): { KeyCode }`
+Returns a table of every `KeyCode` value. Example:
+```lua
+for _, key in Enum.KeyCode:GetEnumItems() do
+    print(key.Name)
+end
+```

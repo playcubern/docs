@@ -54,7 +54,12 @@
             "pages": [
               "enums/partshape",
               "enums/fontweight",
-              "enums/cameramode"
+              "enums/cameramode",
+              "enums/mousebutton",
+              "enums/keycode",
+              "enums/verticalalignment",
+              "enums/horizontalalignment",
+              "enums/characterstate"
             ]
           },
           {
@@ -103,6 +108,7 @@
             "group": "3D Objects",
             "pages": [
               "classes/part",
+              "classes/meshpart",
               "classes/bodypart"
             ]
           },

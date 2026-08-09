@@ -1,0 +1,33 @@
+---
+title: "VerticalAlignment"
+description: "VerticalAlignment"
+icon: "arrows-up-down"
+---
+
+The `VerticalAlignment` enum defines how content is aligned vertically within a
+UI instance, such as text in a [UiLabel](/classes/uilabel). Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.VerticalAlignment`.
+
+## Values
+### `Enum.VerticalAlignment.Top`
+Aligns content to the top.
+
+### `Enum.VerticalAlignment.Center`
+Aligns content to the vertical center.
+
+### `Enum.VerticalAlignment.Bottom`
+Aligns content to the bottom.
+
+### `Enum.VerticalAlignment.Fill`
+Stretches content to fill the available vertical space.
+
+---
+
+## Methods
+### `GetEnumItems(): { VerticalAlignment }`
+Returns a table of every `VerticalAlignment` value. Example:
+```lua
+for _, alignment in Enum.VerticalAlignment:GetEnumItems() do
+    print(alignment.Name)
+end
+```

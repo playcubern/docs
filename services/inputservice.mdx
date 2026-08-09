@@ -20,6 +20,15 @@ local mousePos = game:GetService("InputService").MousePosition
 print(mousePos.X, mousePos.Y)
 ```
 
+### `MouseDelta: Vector2`
+The change in mouse position since the last frame.
+
+### `TouchEnabled: boolean`
+Whether the device supports touch input.
+
+### `IsWindowFocused: boolean`
+Whether the game window currently has focus.
+
 ---
 
 ## Methods
@@ -45,3 +54,43 @@ if result then
     print("Hit", result.Instance.Name)
 end
 ```
+
+### `IsKeyDown(keyCode: KeyCode): boolean`
+Returns true if the given [KeyCode](/enums/keycode) is currently held down. Example:
+```lua
+local inputService = game:GetService("InputService")
+if inputService:IsKeyDown(Enum.KeyCode.Space) then
+    print("Space is held down")
+end
+```
+
+### `IsMouseButtonDown(mouseButton: MouseButton): boolean`
+Returns true if the given [MouseButton](/enums/mousebutton) is currently held down. Example:
+```lua
+local inputService = game:GetService("InputService")
+if inputService:IsMouseButtonDown(Enum.MouseButton.Left) then
+    print("Left mouse button is held down")
+end
+```
+
+### `GetMouseLocation(): Vector2`
+Returns the current position of the mouse cursor on the screen.
+
+### `GetStringForKeyCode(keyCode: KeyCode): string`
+Returns the display string for the given [KeyCode](/enums/keycode). Example:
+```lua
+local inputService = game:GetService("InputService")
+print(inputService:GetStringForKeyCode(Enum.KeyCode.Space)) -- "Space"
+```
+
+### `GetKeyCodeFromString(key: string): KeyCode`
+Returns the [KeyCode](/enums/keycode) matching the given string.
+
+---
+
+## Events
+### `WindowFocused: Event`
+Fired whenever the game window gains focus.
+
+### `WindowFocusReleased: Event`
+Fired whenever the game window loses focus.

@@ -40,6 +40,9 @@ How high the character can jump. Example:
 game.Players.LocalPlayer.Character.JumpPower = 75
 ```
 
+### `State: CharacterState`
+The character's current state. See the [CharacterState](/enums/characterstate) enum for the available values.
+
 ### `HeadId: number`
 The identifier of the head worn by the character.
 
@@ -51,6 +54,9 @@ The identifier of the face worn by the character.
 
 ### `ShirtId: number`
 The identifier of the shirt worn by the character.
+
+### `PantsId: number`
+The identifier of the pants worn by the character.
 
 ### `Hat1: number`
 The identifier of the character's first hat accessory.
@@ -93,5 +99,21 @@ Fired whenever the character's `Health` changes. Example:
 ```lua
 game.Players.LocalPlayer.Character.HealthChanged:Connect(function(health)
     print("Health is now", health)
+end)
+```
+
+### `MaximumHealthChanged: Event`
+Fired whenever the character's `MaxHealth` changes.
+
+### `AppearanceChanged: Event`
+Fired whenever any of the character's appearance properties change, such as its
+worn body parts, accessories or colors.
+
+### `StateChanged: Event<CharacterState>`
+Fired whenever the character's `State` changes. Passes the new
+[CharacterState](/enums/characterstate). Example:
+```lua
+game.Players.LocalPlayer.Character.StateChanged:Connect(function(state: CharacterState)
+    print("State is now", state.Name)
 end)
 ```

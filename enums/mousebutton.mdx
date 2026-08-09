@@ -1,0 +1,51 @@
+---
+title: "MouseButton"
+description: "MouseButton"
+icon: "computer-mouse"
+---
+
+The `MouseButton` enum identifies a button on the mouse. Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.MouseButton`. It is used by
+[InputService's](/services/inputservice) `IsMouseButtonDown` method.
+
+## Values
+### `Enum.MouseButton.None`
+No mouse button.
+
+### `Enum.MouseButton.Left`
+The left mouse button.
+
+### `Enum.MouseButton.Right`
+The right mouse button.
+
+### `Enum.MouseButton.Middle`
+The middle mouse button (scroll wheel click).
+
+### `Enum.MouseButton.WheelUp`
+The scroll wheel scrolled up.
+
+### `Enum.MouseButton.WheelDown`
+The scroll wheel scrolled down.
+
+### `Enum.MouseButton.WheelLeft`
+The scroll wheel scrolled left.
+
+### `Enum.MouseButton.WheelRight`
+The scroll wheel scrolled right.
+
+### `Enum.MouseButton.Xbutton1`
+The first extra mouse button.
+
+### `Enum.MouseButton.Xbutton2`
+The second extra mouse button.
+
+---
+
+## Methods
+### `GetEnumItems(): { MouseButton }`
+Returns a table of every `MouseButton` value. Example:
+```lua
+for _, button in Enum.MouseButton:GetEnumItems() do
+    print(button.Name)
+end
+```

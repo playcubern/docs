@@ -1,0 +1,34 @@
+---
+title: "HorizontalAlignment"
+description: "HorizontalAlignment"
+icon: "arrows-left-right"
+---
+
+The `HorizontalAlignment` enum defines how content is aligned horizontally
+within a UI instance, such as text in a [UiLabel](/classes/uilabel) or
+[UiTextButton](/classes/uitextbutton). Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.HorizontalAlignment`.
+
+## Values
+### `Enum.HorizontalAlignment.Left`
+Aligns content to the left.
+
+### `Enum.HorizontalAlignment.Center`
+Aligns content to the horizontal center.
+
+### `Enum.HorizontalAlignment.Right`
+Aligns content to the right.
+
+### `Enum.HorizontalAlignment.Fill`
+Stretches content to fill the available horizontal space.
+
+---
+
+## Methods
+### `GetEnumItems(): { HorizontalAlignment }`
+Returns a table of every `HorizontalAlignment` value. Example:
+```lua
+for _, alignment in Enum.HorizontalAlignment:GetEnumItems() do
+    print(alignment.Name)
+end
+```
