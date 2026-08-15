@@ -1,0 +1,90 @@
+---
+title: "SoundPlayer"
+description: "SoundPlayer"
+icon: "volume-high"
+---
+
+<Note iconType="regular">
+  SoundPlayer inherits DynamicInstance.
+</Note>
+
+A SoundPlayer plays a sound in the 3D world. Its volume falls off with distance
+from its position, so parent it to the object the sound should come from.
+
+## Properties
+### `SoundId: number`
+The id of the sound to play. Setting it starts loading the sound, and
+[Loaded](#loaded-event) fires once it is ready. Set it to `0` to clear the
+sound. Must be `0` or greater, and cannot be changed while a sound is still
+loading. Example:
+```lua
+script.Parent.SoundId = 1234
+```
+
+### `Volume: number`
+How loud the sound plays, between `0` and `1`. Example:
+```lua
+script.Parent.Volume = 0.5
+```
+
+### `Playing: boolean`
+Whether the sound is currently playing. Set it to `true` to start playback and
+`false` to stop it. Example:
+```lua
+script.Parent.Playing = true
+```
+
+### `Looped: boolean`
+Whether the sound restarts from the beginning when it reaches the end. Example:
+```lua
+script.Parent.Looped = true
+```
+
+### `AutoPlay: boolean`
+Whether the sound starts playing on its own as soon as it finishes loading.
+Example:
+```lua
+script.Parent.AutoPlay = true
+```
+
+### `Paused: boolean`
+Whether playback is paused. Unlike setting `Playing` to `false`, pausing keeps
+the current position in the sound, so setting it back to `false` resumes from
+where it stopped. Example:
+```lua
+script.Parent.Paused = true
+```
+
+### `MaxDistance: number`
+The distance, in studs, past which the sound can no longer be heard. Must be `0`
+or greater. Example:
+```lua
+script.Parent.MaxDistance = 50
+```
+
+### `PlaybackSpeed: number`
+The speed the sound plays at, where `1` is normal speed. Higher values play the
+sound faster and at a higher pitch. Example:
+```lua
+script.Parent.PlaybackSpeed = 1.5
+```
+
+---
+
+## Events
+### `Loaded: Event`
+Fired when the sound set by `SoundId` has finished loading and is ready to play.
+Example:
+```lua
+script.Parent.Loaded:Connect(function()
+    script.Parent.Playing = true
+end)
+```
+
+### `Ended: Event`
+Fired when the sound reaches the end. Example:
+```lua
+script.Parent.Ended:Connect(function()
+    print("sound finished")
+end)
+```

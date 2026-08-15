@@ -119,6 +119,12 @@
             ]
           },
           {
+            "group": "Audio",
+            "pages": [
+              "classes/soundplayer"
+            ]
+          },
+          {
             "group": "UI",
             "pages": [
               "classes/uipanel",
