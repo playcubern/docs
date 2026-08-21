@@ -1,0 +1,31 @@
+---
+title: "BillboardMode"
+description: "BillboardMode"
+icon: "eye"
+---
+
+The `BillboardMode` enum defines how a [UiSurface](/classes/uisurface) rotates to
+face the camera. Each value is an [EnumItem](/types/enumitem) accessed through
+`Enum.BillboardMode`.
+
+## Values
+### `Enum.BillboardMode.Disabled`
+The surface does not face the camera and keeps its own rotation.
+
+### `Enum.BillboardMode.Full`
+The surface always faces the camera on every axis.
+
+### `Enum.BillboardMode.Upright`
+The surface faces the camera but only rotates around the vertical axis, so it
+stays upright.
+
+---
+
+## Methods
+### `GetEnumItems(): { BillboardMode }`
+Returns a table of every `BillboardMode` value. Example:
+```lua
+for _, mode in Enum.BillboardMode:GetEnumItems() do
+    print(mode.Name)
+end
+```

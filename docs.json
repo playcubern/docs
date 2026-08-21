@@ -59,7 +59,8 @@
               "enums/keycode",
               "enums/verticalalignment",
               "enums/horizontalalignment",
-              "enums/characterstate"
+              "enums/characterstate",
+              "enums/billboardmode"
             ]
           },
           {
@@ -133,7 +134,8 @@
               "classes/uiimagelabel",
               "classes/uitextbutton",
               "classes/uitextinput",
-              "classes/uiviewport"
+              "classes/uiviewport",
+              "classes/uisurface"
             ]
           },
           {

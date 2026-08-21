@@ -1,0 +1,34 @@
+---
+title: "UiSurface"
+description: "UiSurface"
+icon: "chalkboard"
+---
+
+<Note iconType="regular">
+  UiSurface inherits DynamicInstance.
+</Note>
+
+A surface in the 3D world that renders UI. Any
+[UiInstance](/abstract-classes/uiinstance) parented to a `UiSurface` is drawn on
+its canvas.
+
+## Properties
+### `CanvasSize: Vector2`
+The size of the surface's canvas in pixels. UI elements are positioned within
+this area. Example:
+```lua
+script.Parent.CanvasSize = Vector2.new(800, 600)
+```
+
+### `Shaded: boolean`
+Whether the surface is affected by lighting.
+
+### `DoubleSided: boolean`
+Whether the surface renders on both sides.
+
+### `Billboard: BillboardMode`
+How the surface rotates to face the camera. See the
+[BillboardMode](/enums/billboardmode) enum for the available values.
+
+### `Disabled: boolean`
+Whether the surface stops rendering its UI.
