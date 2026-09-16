@@ -1,0 +1,29 @@
+---
+title: "FogMode"
+description: "FogMode"
+icon: "smog"
+---
+
+The `FogMode` enum defines how fog is rendered by the
+[Environment](/services/environment) service. Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.FogMode`.
+
+## Values
+### `Enum.FogMode.Standard`
+Fog density increases linearly with distance from the camera, between
+`FogStartDistance` and `FogEndDistance`.
+
+### `Enum.FogMode.Volumetric`
+Fog is rendered as a volumetric effect. `FogStartDistance` has no effect in
+this mode: volumetric fog always starts at the camera.
+
+---
+
+## Methods
+### `GetEnumItems(): { FogMode }`
+Returns a table of every `FogMode` value. Example:
+```lua
+for _, mode in Enum.FogMode:GetEnumItems() do
+    print(mode.Name)
+end
+```

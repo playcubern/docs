@@ -60,7 +60,9 @@
               "enums/verticalalignment",
               "enums/horizontalalignment",
               "enums/characterstate",
-              "enums/billboardmode"
+              "enums/billboardmode",
+              "enums/fogmode",
+              "enums/backgroundmode"
             ]
           },
           {

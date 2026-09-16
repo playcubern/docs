@@ -1,7 +1,7 @@
 ---
 title: "Environment"
 description: "Environment"
-icon: "lightbulb"
+icon: "bolt"
 ---
 
 <Note iconType="regular">
@@ -20,14 +20,34 @@ The brightness of the sun light in the scene.
 ### `SunColor: Color3`
 The color of the sun light in the scene.
 
+### `BackgroundMode: BackgroundMode`
+How the background of the world is rendered. See
+[BackgroundMode](/enums/backgroundmode).
+
+### `BackgroundFlatColor: Color3`
+The color used for the background when `BackgroundMode` is
+`Enum.BackgroundMode.FlatColor`.
+
 ### `Ambient: Color3`
 The ambient light color applied to the whole scene.
+
+### `FogMode: FogMode`
+How fog is rendered. See [FogMode](/enums/fogmode).
 
 ### `FogEnabled: boolean`
 Whether fog is enabled.
 
 ### `FogColor: Color3`
 The color of the fog.
+
+### `FogStartDistance: number`
+The distance from the camera at which fog begins.
+
+<Note iconType="regular">
+  This property only applies when `FogMode` is `Enum.FogMode.Standard`. When
+  `FogMode` is `Enum.FogMode.Volumetric`, fog always starts at the camera and
+  `FogStartDistance` has no effect.
+</Note>
 
 ### `FogEndDistance: number`
 The distance from the camera at which fog reaches full density.

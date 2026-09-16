@@ -1,0 +1,27 @@
+---
+title: "BackgroundMode"
+description: "BackgroundMode"
+icon: "mountain-sun"
+---
+
+The `BackgroundMode` enum defines how the background of the
+[Environment](/services/environment) is rendered. Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.BackgroundMode`.
+
+## Values
+### `Enum.BackgroundMode.Sky`
+The background renders a sky.
+
+### `Enum.BackgroundMode.FlatColor`
+The background renders as a flat color, set by `BackgroundFlatColor`.
+
+---
+
+## Methods
+### `GetEnumItems(): { BackgroundMode }`
+Returns a table of every `BackgroundMode` value. Example:
+```lua
+for _, mode in Enum.BackgroundMode:GetEnumItems() do
+    print(mode.Name)
+end
+```
