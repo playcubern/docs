@@ -1,0 +1,45 @@
+---
+title: "MarketService"
+description: "MarketService provides access to purchasable products."
+icon: "cart-shopping"
+---
+
+<Note iconType="regular">
+  MarketService inherits Instance.
+</Note>
+
+The MarketService provides access to purchasable products, letting scripts
+check ownership, look up product details and prompt players to buy.
+
+## Methods
+### `OwnsItem(productId: number): boolean`
+Returns whether the local player owns the product with the given id.
+
+### `PlayerOwns(player: Player, productId: number): boolean`
+Returns whether `player` owns the product with the given id.
+
+### `PromptPurchase(productId: number): nil`
+Prompts the local player to purchase the product with the given id.
+
+### `PromptPurchase(player: Player, productId: number): nil`
+Prompts `player` to purchase the product with the given id.
+
+### `GetProductInfo(productId: number): ProductInfo`
+Returns the [ProductInfo](/types/productinfo) for the product with the given
+id.
+
+---
+
+## Events
+### `PurchaseFinished: Event<Player, number, boolean, PurchaseFailReason>`
+Fired when a purchase prompted by `PromptPurchase` completes. Passes the
+player who was prompted, the product id, whether the purchase succeeded, and
+the reason for failure if it did not.
+```lua
+local marketService = game:GetService("MarketService")
+marketService.PurchaseFinished:Connect(function(player, productId, wasPurchased, failReason)
+    if wasPurchased then
+        print(player.Name .. " bought product " .. productId)
+    end
+end)
+```

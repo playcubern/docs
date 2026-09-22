@@ -25,6 +25,12 @@ The classname of the instance.
 ### `Parent: Instance`
 The parent of the instance inside the game.
 
+<Warning iconType="regular">
+  Setting `Parent` to `nil` does not free the instance or its memory — it just
+  removes it from the game hierarchy. If an instance is no longer in use, call
+  [`Destroy`](#destroy-%3A-nil) on it instead.
+</Warning>
+
 ---
 
 ## Constructors

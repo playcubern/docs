@@ -46,7 +46,8 @@
               "types/eventconnection",
               "types/enumitem",
               "types/datastore",
-              "types/raycastresult"
+              "types/raycastresult",
+              "types/productinfo"
             ]
           },
           {
@@ -62,7 +63,8 @@
               "enums/characterstate",
               "enums/billboardmode",
               "enums/fogmode",
-              "enums/backgroundmode"
+              "enums/backgroundmode",
+              "enums/skypreset"
             ]
           },
           {
@@ -94,7 +96,8 @@
               "services/inputservice",
               "services/runservice",
               "services/chatservice",
-              "services/datastoreservice"
+              "services/datastoreservice",
+              "services/marketservice"
             ]
           },
           {
@@ -118,7 +121,8 @@
           {
             "group": "Lighting",
             "pages": [
-              "classes/pointlight"
+              "classes/pointlight",
+              "classes/skybox"
             ]
           },
           {
@@ -163,7 +167,8 @@
               "classes/boolvalue",
               "classes/colorvalue",
               "classes/vector3value",
-              "classes/vector2value"
+              "classes/vector2value",
+              "classes/instancevalue"
             ]
           },
           {

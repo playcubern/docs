@@ -1,0 +1,42 @@
+---
+title: "SkyPreset"
+description: "SkyPreset"
+icon: "cloud-sun"
+---
+
+The `SkyPreset` enum defines which preset the [Skybox](/classes/skybox) uses.
+Each value is an [EnumItem](/types/enumitem) accessed through
+`Enum.SkyPreset`.
+
+## Values
+### `Enum.SkyPreset.Custom`
+The skybox uses a custom texture, set by `TextureId`, instead of a preset.
+
+### `Enum.SkyPreset.Day1`
+A clear daytime sky.
+
+### `Enum.SkyPreset.Day2`
+An alternate daytime sky.
+
+### `Enum.SkyPreset.Morning`
+A morning sky.
+
+### `Enum.SkyPreset.Night`
+A nighttime sky.
+
+### `Enum.SkyPreset.Space`
+A space skybox.
+
+### `Enum.SkyPreset.Alien`
+An alien-themed skybox.
+
+---
+
+## Methods
+### `GetEnumItems(): { SkyPreset }`
+Returns a table of every `SkyPreset` value. Example:
+```lua
+for _, preset in Enum.SkyPreset:GetEnumItems() do
+    print(preset.Name)
+end
+```

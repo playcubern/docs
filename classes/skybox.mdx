@@ -1,0 +1,32 @@
+---
+title: "Skybox"
+description: "Skybox"
+icon: "cloud"
+---
+
+<Note iconType="regular">
+  Skybox inherits Instance.
+</Note>
+
+A Skybox controls the sky rendered around the world.
+
+## Properties
+### `SkyPreset: SkyPreset`
+Which preset the sky uses. See the [SkyPreset](/enums/skypreset) enum for the
+available values.
+
+### `TextureId: number`
+The id of the texture used for the sky. Only applies when `SkyPreset` is
+`Enum.SkyPreset.Custom`.
+
+---
+
+## Events
+### `SkyChanged: Event`
+Fired whenever the sky's appearance changes, such as when `SkyPreset` or
+`TextureId` is set. Example:
+```lua
+skybox.SkyChanged:Connect(function()
+    print("sky changed")
+end)
+```
