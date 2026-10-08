@@ -22,3 +22,29 @@ Whether the viewport's background is transparent. Example:
 ```lua
 script.Parent.Transparent = true
 ```
+
+### `Ambient: Color3`
+The ambient light color used inside the viewport. Example:
+```lua
+script.Parent.Ambient = Color3.new(0.2, 0.2, 0.2)
+```
+
+### `LightColor: Color3`
+The color of the viewport's directional light. Example:
+```lua
+script.Parent.LightColor = Color3.new(1, 1, 1)
+```
+
+### `LightDirection: Vector3`
+The direction the viewport's directional light shines in. Example:
+```lua
+script.Parent.LightDirection = Vector3.new(-1, -1, -1)
+```
+
+### `CurrentCamera: Camera?`
+The [Camera](/classes/camera) used to render the viewport, or `nil` if none is
+set. Example:
+```lua
+local camera = Instance.new("Camera", script.Parent)
+script.Parent.CurrentCamera = camera
+```

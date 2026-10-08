@@ -46,6 +46,12 @@ The minimum distance the camera can zoom in to its target. Example:
 workspace.CurrentCamera.MinZoom = 5
 ```
 
+### `Active: boolean`
+Whether this camera is the one currently rendering. Example:
+```lua
+print(workspace.CurrentCamera.Active)
+```
+
 ### `ViewportSize: Vector2`
 <Note iconType="regular">
   This property is read-only.
