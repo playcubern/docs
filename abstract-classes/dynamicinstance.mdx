@@ -20,6 +20,14 @@ icon: "rocket"
 ### `Position: Vector3`
 The position of the instance in the world.
 
+### `LocalPosition: Vector3`
+The position of the instance relative to its parent. If the parent is not a
+DynamicInstance, this is the same as `Position`. Example:
+```lua
+-- Place the part 5 studs above its parent, wherever the parent is
+workspace.Model.Part.LocalPosition = Vector3.new(0, 5, 0)
+```
+
 ### `Scale: Vector3`
 The scale of the instance.
 

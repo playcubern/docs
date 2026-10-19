@@ -1,0 +1,38 @@
+---
+title: "TweenService"
+description: "TweenService"
+icon: "wave-square"
+---
+
+<Note iconType="regular">
+  TweenService inherits Instance.
+</Note>
+
+The TweenService creates [Tweens](/classes/tween), which smoothly animate the
+properties of an instance over time.
+
+## Methods
+### `Create(instance: Instance, tweenInfo: TweenInfo, propertyTable: { [string]: any }): Tween`
+Creates a [Tween](/classes/tween) that animates the properties of `instance`
+towards the goal values in `propertyTable`, playing as described by
+[`tweenInfo`](/types/tweeninfo). The tween does not start until
+[`Play`](/classes/tween) is called on it.
+
+Only properties of type `number`, [Vector3](/types/vector3),
+[Color3](/types/color3), [UDim](/types/udim) and [UDim2](/types/udim2) can be
+tweened, and each goal must be the same type as the property it targets.
+Example:
+```lua
+local tweenService = game:GetService("TweenService")
+local part = workspace.Part
+
+local info = TweenInfo.new(2, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
+local tween = tweenService:Create(part, info, {
+    Position = part.Position + Vector3.new(0, 10, 0),
+    Color = Color3.fromHex("#ff0000"),
+})
+
+tween:Play()
+tween.Completed:Wait()
+print("Done!")
+```

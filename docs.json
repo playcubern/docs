@@ -13,10 +13,9 @@
   "appearance": {
     "default": "dark"
   },
-
   "favicon": "/favicon.jpg",
   "navigation": {
-  "tabs": [
+    "tabs": [
       {
         "tab": "Documentation",
         "groups": [
@@ -47,6 +46,7 @@
               "types/enumitem",
               "types/datastore",
               "types/raycastresult",
+              "types/tweeninfo",
               "types/productinfo"
             ]
           },
@@ -64,7 +64,15 @@
               "enums/billboardmode",
               "enums/fogmode",
               "enums/backgroundmode",
-              "enums/skypreset"
+              "enums/skypreset",
+              "enums/attenuationmodel",
+              "enums/traillimitmode",
+              "enums/trailblendmode",
+              "enums/easingstyle",
+              "enums/easingdirection",
+              "enums/playbackstate",
+              "enums/purchasefailreason",
+              "enums/productkind"
             ]
           },
           {
@@ -78,6 +86,7 @@
               "abstract-classes/valuebase",
               "abstract-classes/uiinstance",
               "abstract-classes/uiview",
+              "abstract-classes/uibutton",
               "abstract-classes/networkevent"
             ]
           },
@@ -97,7 +106,10 @@
               "services/runservice",
               "services/chatservice",
               "services/datastoreservice",
-              "services/marketservice"
+              "services/marketservice",
+              "services/tweenservice",
+              "services/soundservice",
+              "services/httpservice"
             ]
           },
           {
@@ -132,13 +144,27 @@
             ]
           },
           {
+            "group": "Effects",
+            "pages": [
+              "classes/trail"
+            ]
+          },
+          {
+            "group": "Animation",
+            "pages": [
+              "classes/tween"
+            ]
+          },
+          {
             "group": "UI",
             "pages": [
               "classes/uipanel",
               "classes/uilayer",
+              "classes/uilistlayout",
               "classes/uilabel",
               "classes/uiimagelabel",
               "classes/uitextbutton",
+              "classes/uiimagebutton",
               "classes/uitextinput",
               "classes/uiviewport",
               "classes/uisurface"

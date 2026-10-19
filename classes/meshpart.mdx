@@ -9,5 +9,26 @@ icon: "shapes"
 </Note>
 
 A part whose visible shape comes from a custom mesh instead of a primitive
-[PartShape](/enums/partshape). It has no additional properties, methods or
-events beyond those inherited from [DynamicInstance](/abstract-classes/dynamicinstance).
+[PartShape](/enums/partshape). In addition to everything inherited from
+[DynamicInstance](/abstract-classes/dynamicinstance), it has the following members.
+
+## Properties
+### `MeshId: number`
+The id of the mesh to display. Setting it loads the mesh and replaces the
+current one. Values of `0` or lower leave the current mesh as it is. Example:
+```lua
+script.Parent.MeshId = 1234
+```
+
+### `TextureId: number`
+The id of the texture applied to the mesh. Set it to `0` to remove the texture.
+Example:
+```lua
+script.Parent.TextureId = 5678
+```
+
+### `Color: Color3`
+The color the mesh is tinted with. Example:
+```lua
+script.Parent.Color = Color3.fromHex("#ff8800")
+```

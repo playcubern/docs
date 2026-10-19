@@ -52,5 +52,18 @@ The distance from the camera at which fog begins.
 ### `FogEndDistance: number`
 The distance from the camera at which fog reaches full density.
 
+### `FogDensity: number`
+How thick the fog is. Higher values make the fog more opaque. Must be `0` or
+greater. The value applies to whichever `FogMode` is currently active.
+
 ### `Saturation: number`
 The color saturation applied to the whole scene.
+
+### `ActiveSkybox: Skybox`
+The [Skybox](/classes/skybox) currently used to render the sky. Changes to the
+skybox, such as setting its `SkyPreset`, are applied to the sky right away.
+Example:
+```lua
+local environment = game:GetService("Environment")
+environment.ActiveSkybox.SkyPreset = Enum.SkyPreset.Night
+```

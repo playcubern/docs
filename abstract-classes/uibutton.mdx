@@ -1,0 +1,40 @@
+---
+title: "UiButton"
+description: "UiButton is the abstract class for clickable UI buttons"
+icon: "hand-pointer"
+---
+
+<Note iconType="regular">
+  UiButton inherits UiView.
+</Note>
+
+<Warning iconType="regular">
+  This class cannot be created from `Instance.new`
+</Warning>
+
+<Warning iconType="regular">
+  This is an abstract class.
+</Warning>
+
+UiButton adds click events on top of [UiView](/abstract-classes/uiview).
+[UiTextButton](/classes/uitextbutton) and
+[UiImageButton](/classes/uiimagebutton) inherit from it.
+
+## Events
+### `MouseButton1Down: Event`
+Fired when the left mouse button is pressed on the button. Example:
+```lua
+script.Parent.MouseButton1Down:Connect(function()
+    print("Button pressed")
+end)
+```
+
+### `Activated: Event`
+Fired when the button is clicked: the left mouse button is pressed on the
+button and then released while still over it. Releasing the mouse outside the
+button does not fire it. Example:
+```lua
+script.Parent.Activated:Connect(function()
+    print("Button clicked")
+end)
+```

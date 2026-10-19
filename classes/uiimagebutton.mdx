@@ -1,0 +1,21 @@
+---
+title: "UiImageButton"
+description: "UiImageButton"
+icon: "image"
+---
+
+<Note iconType="regular">
+  UiImageButton inherits UiButton.
+</Note>
+
+A clickable button that displays an image. In addition to everything inherited
+from [UiButton](/abstract-classes/uibutton), it has the following members.
+
+## Properties
+### `ImageId: number`
+The id of the image to display on the button. Setting it loads the image and
+shows it once it is ready. Set it to `0` to show the placeholder image instead.
+Example:
+```lua
+script.Parent.ImageId = 1234
+```

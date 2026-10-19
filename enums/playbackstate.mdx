@@ -1,0 +1,39 @@
+---
+title: "PlaybackState"
+description: "PlaybackState"
+icon: "circle-play"
+---
+
+The `PlaybackState` enum describes the current state of a
+[Tween](/classes/tween). Each value is an [EnumItem](/types/enumitem) accessed
+through `Enum.PlaybackState`.
+
+## Values
+### `Enum.PlaybackState.Begin`
+The tween has been created but has not been played yet.
+
+### `Enum.PlaybackState.Delayed`
+The tween is waiting for its `DelayTime` to pass before it starts moving.
+
+### `Enum.PlaybackState.Playing`
+The tween is currently playing.
+
+### `Enum.PlaybackState.Paused`
+The tween was paused with `Pause`.
+
+### `Enum.PlaybackState.Completed`
+The tween finished playing.
+
+### `Enum.PlaybackState.Cancelled`
+The tween was stopped with `Cancel`, or its instance was destroyed while it was playing.
+
+---
+
+## Methods
+### `GetEnumItems(): { PlaybackState }`
+Returns a table of every `PlaybackState` value. Example:
+```lua
+for _, item in Enum.PlaybackState:GetEnumItems() do
+    print(item.Name)
+end
+```

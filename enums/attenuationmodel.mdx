@@ -1,0 +1,33 @@
+---
+title: "AttenuationModel"
+description: "AttenuationModel"
+icon: "ear-listen"
+---
+
+The `AttenuationModel` enum defines how a [SoundPlayer](/classes/soundplayer)'s
+volume falls off with distance. Each value is an [EnumItem](/types/enumitem)
+accessed through `Enum.AttenuationModel`.
+
+## Values
+### `Enum.AttenuationModel.InverseDistance`
+Volume decreases in inverse proportion to the distance from the sound.
+
+### `Enum.AttenuationModel.InverseSquareDistance`
+Volume decreases with the square of the distance, so it fades out faster than `InverseDistance`.
+
+### `Enum.AttenuationModel.LogarithmicDistance`
+Volume decreases logarithmically with distance.
+
+### `Enum.AttenuationModel.Disabled`
+Volume does not change with distance. The sound is still cut off past `MaxDistance`.
+
+---
+
+## Methods
+### `GetEnumItems(): { AttenuationModel }`
+Returns a table of every `AttenuationModel` value. Example:
+```lua
+for _, item in Enum.AttenuationModel:GetEnumItems() do
+    print(item.Name)
+end
+```

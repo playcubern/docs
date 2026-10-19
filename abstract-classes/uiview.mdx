@@ -15,12 +15,17 @@ icon: "table-cells-large"
 UiView adds background, corner radius and border styling on top of
 [UiInstance](/abstract-classes/uiinstance). UI classes such as
 [UiPanel](/classes/uipanel), [UiLabel](/classes/uilabel),
-[UiTextButton](/classes/uitextbutton) and [UiTextInput](/classes/uitextinput)
+[UiButton](/abstract-classes/uibutton) and
+[UiTextInput](/classes/uitextinput)
 inherit from it.
 
 ## Properties
 ### `BackgroundColor: Color3`
 The background color of the view.
+
+### `BackgroundTransparent: boolean`
+Whether the background is fully transparent. When `true`, `BackgroundColor` is
+not shown.
 
 ### `CornerRadiusTopLeft: number`
 The corner radius of the top-left corner.

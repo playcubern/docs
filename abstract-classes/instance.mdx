@@ -31,6 +31,15 @@ The parent of the instance inside the game.
   [`Destroy`](#destroy-%3A-nil) on it instead.
 </Warning>
 
+### `Archivable: boolean`
+Whether the instance can be cloned. When `false`, calling `Clone` on it returns
+`nil`, and it is skipped when one of its ancestors is cloned. Defaults to
+`true`. Example:
+```lua
+workspace.Part.Archivable = false
+print(workspace.Part:Clone()) -- nil
+```
+
 ---
 
 ## Constructors
@@ -45,8 +54,9 @@ part.Parent = workspace
 ---
 
 ## Methods
-### `Clone(): Instance`
-Clones the instance and returns it. Example:
+### `Clone(): Instance?`
+Clones the instance along with its descendants and returns it. Returns `nil` if
+`Archivable` is `false`. Example:
 ```lua
 local part = workspace.Part
 local newPart = part:Clone()

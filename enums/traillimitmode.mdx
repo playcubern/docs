@@ -1,0 +1,27 @@
+---
+title: "TrailLimitMode"
+description: "TrailLimitMode"
+icon: "ruler"
+---
+
+The `TrailLimitMode` enum defines what limits how long a [Trail](/classes/trail)
+is. Each value is an [EnumItem](/types/enumitem) accessed through
+`Enum.TrailLimitMode`.
+
+## Values
+### `Enum.TrailLimitMode.Lifetime`
+Trail sections disappear after `Lifetime` seconds.
+
+### `Enum.TrailLimitMode.MaxLength`
+The trail is cut off once it is longer than `MaxLength` studs.
+
+---
+
+## Methods
+### `GetEnumItems(): { TrailLimitMode }`
+Returns a table of every `TrailLimitMode` value. Example:
+```lua
+for _, item in Enum.TrailLimitMode:GetEnumItems() do
+    print(item.Name)
+end
+```

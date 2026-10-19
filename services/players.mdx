@@ -17,6 +17,13 @@ The [Player](/classes/player) that owns the local client.
 ### `PlayersCount: number`
 The number of [Player](/classes/player) instances currently in the game.
 
+### `RespawnTime: number`
+How long, in seconds, a player waits after their character dies before it
+respawns. Defaults to `3`. Example:
+```lua
+game:GetService("Players").RespawnTime = 5
+```
+
 ---
 
 ## Methods

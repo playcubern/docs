@@ -1,0 +1,27 @@
+---
+title: "TrailBlendMode"
+description: "TrailBlendMode"
+icon: "droplet"
+---
+
+The `TrailBlendMode` enum defines how a [Trail](/classes/trail) is blended with
+what is behind it. Each value is an [EnumItem](/types/enumitem) accessed through
+`Enum.TrailBlendMode`.
+
+## Values
+### `Enum.TrailBlendMode.Mix`
+The trail is drawn normally on top of what is behind it.
+
+### `Enum.TrailBlendMode.Additive`
+The trail's color is added to what is behind it, making it glow. Useful for light and energy effects.
+
+---
+
+## Methods
+### `GetEnumItems(): { TrailBlendMode }`
+Returns a table of every `TrailBlendMode` value. Example:
+```lua
+for _, item in Enum.TrailBlendMode:GetEnumItems() do
+    print(item.Name)
+end
+```

@@ -1,0 +1,31 @@
+---
+title: "EasingDirection"
+description: "EasingDirection"
+icon: "arrows-left-right"
+---
+
+The `EasingDirection` enum defines which end of a [Tween](/classes/tween) its
+[EasingStyle](/enums/easingstyle) is applied to. Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.EasingDirection` and used by
+[TweenInfo](/types/tweeninfo).
+
+## Values
+### `Enum.EasingDirection.In`
+The easing is applied at the start, so the tween starts slowly and speeds up.
+
+### `Enum.EasingDirection.Out`
+The easing is applied at the end, so the tween starts quickly and slows down.
+
+### `Enum.EasingDirection.InOut`
+The easing is applied at both the start and the end.
+
+---
+
+## Methods
+### `GetEnumItems(): { EasingDirection }`
+Returns a table of every `EasingDirection` value. Example:
+```lua
+for _, item in Enum.EasingDirection:GetEnumItems() do
+    print(item.Name)
+end
+```

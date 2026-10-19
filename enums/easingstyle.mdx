@@ -1,0 +1,55 @@
+---
+title: "EasingStyle"
+description: "EasingStyle"
+icon: "bezier-curve"
+---
+
+The `EasingStyle` enum defines the curve a [Tween](/classes/tween) follows as it
+moves from its start value to its goal. Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.EasingStyle` and used by
+[TweenInfo](/types/tweeninfo).
+
+## Values
+### `Enum.EasingStyle.Linear`
+Moves at a constant speed.
+
+### `Enum.EasingStyle.Sine`
+Gentle easing based on a sine wave.
+
+### `Enum.EasingStyle.Back`
+Slightly overshoots past the start or goal before settling.
+
+### `Enum.EasingStyle.Quad`
+Quadratic easing.
+
+### `Enum.EasingStyle.Cubic`
+Cubic easing, stronger than `Quad`.
+
+### `Enum.EasingStyle.Quart`
+Quartic easing, stronger than `Cubic`.
+
+### `Enum.EasingStyle.Quint`
+Quintic easing, stronger than `Quart`.
+
+### `Enum.EasingStyle.Exponential`
+Very sharp easing based on an exponential curve.
+
+### `Enum.EasingStyle.Circular`
+Easing based on a quarter circle.
+
+### `Enum.EasingStyle.Bounce`
+Bounces against the goal like a dropped ball.
+
+### `Enum.EasingStyle.Elastic`
+Springs back and forth around the goal like a rubber band.
+
+---
+
+## Methods
+### `GetEnumItems(): { EasingStyle }`
+Returns a table of every `EasingStyle` value. Example:
+```lua
+for _, item in Enum.EasingStyle:GetEnumItems() do
+    print(item.Name)
+end
+```

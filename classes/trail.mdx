@@ -1,0 +1,60 @@
+---
+title: "Trail"
+description: "Trail"
+icon: "wind"
+---
+
+<Note iconType="regular">
+  Trail inherits DynamicInstance.
+</Note>
+
+A Trail leaves a ribbon behind it as it moves through the world. Parent it to a
+moving object, such as a part or a character, to draw a streak along its path.
+
+## Properties
+### `Emitting: boolean`
+Whether the trail is currently emitting new sections. Set it to `false` to stop
+the trail from growing while letting the existing sections fade out. Example:
+```lua
+script.Parent.Emitting = true
+```
+
+### `LimitMode: TrailLimitMode`
+What limits the trail's length. See the [TrailLimitMode](/enums/traillimitmode)
+enum for the available values. Example:
+```lua
+script.Parent.LimitMode = Enum.TrailLimitMode.MaxLength
+```
+
+### `Lifetime: number`
+How long, in seconds, each section of the trail lasts before disappearing. Only
+applies when `LimitMode` is `Enum.TrailLimitMode.Lifetime`. Must be `0` or
+greater.
+
+### `MaxLength: number`
+The maximum length of the trail, in studs. Only applies when `LimitMode` is
+`Enum.TrailLimitMode.MaxLength`. Must be `0` or greater.
+
+### `MinSectionLength: number`
+The minimum distance, in studs, the trail has to move before a new section is
+added. Lower values make smoother trails. Must be `0` or greater.
+
+### `Color: Color3`
+The color of the trail. Example:
+```lua
+script.Parent.Color = Color3.fromHex("#00aaff")
+```
+
+### `Width: number`
+The width of the trail, in studs. Must be `0` or greater.
+
+### `FaceCamera: boolean`
+Whether the trail always turns to face the camera. When `false`, the trail keeps
+the orientation of the object it follows.
+
+### `BlendMode: TrailBlendMode`
+How the trail is blended with what is behind it. See the
+[TrailBlendMode](/enums/trailblendmode) enum for the available values. Example:
+```lua
+script.Parent.BlendMode = Enum.TrailBlendMode.Additive
+```

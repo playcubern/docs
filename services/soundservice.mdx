@@ -1,0 +1,19 @@
+---
+title: "SoundService"
+description: "SoundService"
+icon: "volume-high"
+---
+
+<Note iconType="regular">
+  SoundService inherits Instance.
+</Note>
+
+The SoundService holds settings that apply to all sound in the game.
+
+## Properties
+### `MasterVolume: number`
+The overall volume of the game, between `0` and `1`. Setting a value outside
+that range raises an error. Example:
+```lua
+game:GetService("SoundService").MasterVolume = 0.5
+```

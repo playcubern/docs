@@ -1,0 +1,69 @@
+---
+title: "Tween"
+description: "Tween"
+icon: "wave-square"
+---
+
+<Note iconType="regular">
+  Tween inherits Instance.
+</Note>
+
+<Warning iconType="regular">
+  This class cannot be created from `Instance.new`. Use
+  [TweenService:Create](/services/tweenservice) instead.
+</Warning>
+
+A Tween smoothly changes one or more properties of an instance from their
+current values to goal values over time. Tweens are created with
+[TweenService:Create](/services/tweenservice) and do nothing until `Play` is
+called.
+
+## Properties
+### `Instance: Instance`
+<Note iconType="regular">
+  This property is read-only.
+</Note>
+The instance whose properties are being tweened.
+
+### `TweenInfo: TweenInfo`
+<Note iconType="regular">
+  This property is read-only.
+</Note>
+The [TweenInfo](/types/tweeninfo) that describes how the tween plays.
+
+### `PlaybackState: PlaybackState`
+<Note iconType="regular">
+  This property is read-only.
+</Note>
+The current state of the tween. See the [PlaybackState](/enums/playbackstate)
+enum for the available values.
+
+---
+
+## Methods
+### `Play(): ()`
+Starts the tween. The start values are read from the instance at the moment
+`Play` is called. If the tween is paused, it resumes from where it stopped.
+Calling `Play` on a tween that has already completed or been cancelled plays it
+again from the instance's current values.
+
+### `Pause(): ()`
+Pauses the tween. Call `Play` to resume it.
+
+### `Cancel(): ()`
+Stops the tween and fires `Completed` with `Enum.PlaybackState.Cancelled`. The
+tweened properties keep whatever values they had when it was cancelled.
+
+---
+
+## Events
+### `Completed: Event<PlaybackState>`
+Fired when the tween finishes playing or is cancelled. Passes the final
+[PlaybackState](/enums/playbackstate), which is either
+`Enum.PlaybackState.Completed` or `Enum.PlaybackState.Cancelled`. A tween is
+also cancelled if its instance is destroyed while it is playing. Example:
+```lua
+tween.Completed:Connect(function(state: PlaybackState)
+    print("Tween ended with state", state.Name)
+end)
+```

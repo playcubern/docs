@@ -69,6 +69,14 @@ sound faster and at a higher pitch. Example:
 script.Parent.PlaybackSpeed = 1.5
 ```
 
+### `AttenuationModel: AttenuationModel`
+How the sound's volume falls off with distance. See the
+[AttenuationModel](/enums/attenuationmodel) enum for the available values.
+Example:
+```lua
+script.Parent.AttenuationModel = Enum.AttenuationModel.InverseSquareDistance
+```
+
 ---
 
 ## Events

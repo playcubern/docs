@@ -1,0 +1,55 @@
+---
+title: "TweenInfo"
+description: "TweenInfo"
+icon: "sliders"
+---
+
+<Warning iconType="regular">
+  The properties of TweenInfo are not mutable once created.
+</Warning>
+
+A `TweenInfo` describes how a [Tween](/classes/tween) plays: how long it takes,
+which easing curve it follows, and whether it repeats, reverses or waits before
+starting. It is passed to
+[TweenService:Create](/services/tweenservice).
+
+## Properties
+### `Time: number`
+How long the tween takes to reach its goal, in seconds.
+
+### `EasingStyle: EasingStyle`
+The curve the tween follows. See [EasingStyle](/enums/easingstyle).
+
+### `EasingDirection: EasingDirection`
+Which end of the tween the easing is applied to. See
+[EasingDirection](/enums/easingdirection).
+
+### `RepeatCount: number`
+How many extra times the tween plays after the first time. `0` plays it once,
+and a negative value repeats it forever.
+
+### `Reverses: boolean`
+Whether the tween plays backwards to its start value after reaching its goal.
+
+### `DelayTime: number`
+How long, in seconds, the tween waits before it starts moving.
+
+---
+
+## Constructors
+### `TweenInfo.new(time: number?, easingStyle: EasingStyle?, easingDirection: EasingDirection?, repeatCount: number?, reverses: boolean?, delayTime: number?): TweenInfo`
+Creates a new TweenInfo. Any parameter that is not provided uses its default:
+
+| Parameter | Default |
+|-----------|---------|
+| `time` | `1` |
+| `easingStyle` | `Enum.EasingStyle.Quad` |
+| `easingDirection` | `Enum.EasingDirection.Out` |
+| `repeatCount` | `0` |
+| `reverses` | `false` |
+| `delayTime` | `0` |
+
+Example:
+```lua
+local info = TweenInfo.new(2, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut)
+```

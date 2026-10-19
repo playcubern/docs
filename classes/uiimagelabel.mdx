@@ -8,4 +8,13 @@ icon: "image"
   UiImageLabel inherits UiInstance.
 </Note>
 
-Displays an image inside the UI. It has no additional properties, methods or events beyond those inherited from [UiInstance](/abstract-classes/uiinstance).
+Displays an image inside the UI. In addition to everything inherited from
+[UiInstance](/abstract-classes/uiinstance), it has the following members.
+
+## Properties
+### `ImageId: number`
+The id of the image to display. Setting it loads the image and shows it once it
+is ready. Set it to `0` to show the placeholder image instead. Example:
+```lua
+script.Parent.ImageId = 1234
+```

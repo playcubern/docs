@@ -5,8 +5,11 @@ icon: "rectangle"
 ---
 
 <Note iconType="regular">
-  UiTextButton inherits UiView.
+  UiTextButton inherits UiButton.
 </Note>
+
+A clickable button that displays text. In addition to everything inherited
+from [UiButton](/abstract-classes/uibutton), it has the following members.
 
 ## Properties
 ### `Text: string`
@@ -24,13 +27,3 @@ The weight of the font. See the [FontWeight](/enums/fontweight) enum for the ava
 ### `HorizontalAlignment: HorizontalAlignment`
 The horizontal alignment of the text. See the [HorizontalAlignment](/enums/horizontalalignment) enum for the available values.
 
----
-
-## Events
-### `MouseButton1Down`
-Fired when the left mouse button is pressed on the button. Example:
-```lua
-script.Parent.MouseButton1Down:Connect(function()
-    print("Button pressed")
-end)
-```

@@ -1,0 +1,24 @@
+---
+title: "ProductKind"
+description: "ProductKind"
+icon: "tags"
+---
+
+The `ProductKind` enum describes what kind of product a
+[ProductInfo](/types/productinfo) refers to. Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.ProductKind`.
+
+## Values
+### `Enum.ProductKind.Gamepass`
+A gamepass. This is currently the only kind of product.
+
+---
+
+## Methods
+### `GetEnumItems(): { ProductKind }`
+Returns a table of every `ProductKind` value. Example:
+```lua
+for _, item in Enum.ProductKind:GetEnumItems() do
+    print(item.Name)
+end
+```

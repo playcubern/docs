@@ -1,0 +1,39 @@
+---
+title: "PurchaseFailReason"
+description: "PurchaseFailReason"
+icon: "circle-xmark"
+---
+
+The `PurchaseFailReason` enum describes why a purchase made through the
+[MarketService](/services/marketservice) did not go through. Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.PurchaseFailReason`.
+
+## Values
+### `Enum.PurchaseFailReason.None`
+The purchase did not fail.
+
+### `Enum.PurchaseFailReason.Declined`
+The player declined the purchase prompt.
+
+### `Enum.PurchaseFailReason.InsufficientFunds`
+The player does not have enough funds to buy the product.
+
+### `Enum.PurchaseFailReason.NotForSale`
+The product is not for sale.
+
+### `Enum.PurchaseFailReason.AlreadyOwned`
+The player already owns the product.
+
+### `Enum.PurchaseFailReason.Error`
+An internal error occurred while processing the purchase.
+
+---
+
+## Methods
+### `GetEnumItems(): { PurchaseFailReason }`
+Returns a table of every `PurchaseFailReason` value. Example:
+```lua
+for _, item in Enum.PurchaseFailReason:GetEnumItems() do
+    print(item.Name)
+end
+```
