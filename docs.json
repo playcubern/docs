@@ -48,7 +48,8 @@
               "types/datastore",
               "types/raycastresult",
               "types/tweeninfo",
-              "types/productinfo"
+              "types/productinfo",
+              "types/inputobject"
             ]
           },
           {
@@ -73,7 +74,11 @@
               "enums/easingdirection",
               "enums/playbackstate",
               "enums/purchasefailreason",
-              "enums/productkind"
+              "enums/productkind",
+              "enums/inputtype",
+              "enums/inputstate",
+              "enums/modifierkey",
+              "enums/renderingenginefeatures"
             ]
           },
           {
@@ -110,7 +115,8 @@
               "services/marketservice",
               "services/tweenservice",
               "services/soundservice",
-              "services/httpservice"
+              "services/httpservice",
+              "services/graphicsservice"
             ]
           },
           {
@@ -118,6 +124,7 @@
             "pages": [
               "classes/player",
               "classes/character",
+              "classes/npc",
               "classes/spawnpoint",
               "classes/clickdetector",
               "classes/camera"

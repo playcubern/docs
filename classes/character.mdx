@@ -8,10 +8,14 @@ icon: "person"
   Character inherits DynamicInstance.
 </Note>
 
-Represents a [Player](/classes/player)'s avatar in the 3D world. It controls the
-appearance of the avatar, including which body parts and accessories are worn
-and their colors. Access it through a player's
-[`Character`](/classes/player) property. In addition to everything inherited from
+Represents a [Player](/classes/player)'s or [Npc](/classes/npc)'s avatar in
+the 3D world. It controls the appearance of the avatar, including which body
+parts and accessories are worn, and how it moves. Access it through a player's
+[`Character`](/classes/player) property or an Npc's `Character` property.
+
+Each body part is a [BodyPart](/classes/bodypart) child of the character, named
+`Head`, `Torso`, `LeftArm`, `RightArm`, `LeftLeg` and `RightLeg`. Change a body
+part's color through its `Color` property. In addition to everything inherited from
 [DynamicInstance](/abstract-classes/dynamicinstance), it has the following members.
 
 ## Properties
@@ -43,6 +47,16 @@ game.Players.LocalPlayer.Character.JumpPower = 75
 ### `State: CharacterState`
 The character's current state. See the [CharacterState](/enums/characterstate) enum for the available values.
 
+### `MoveDirection: Vector3`
+The direction the character is currently walking in, whether from player input
+or from `Move` and `MoveTo`. It is `Vector3.new(0, 0, 0)` while standing still.
+This property is read-only.
+
+### `AnimationState: number`
+The animation the character is currently playing: `0` for idle, `1` for walking
+and `2` for jumping. It is used internally to replicate animations and is
+hidden from the properties panel.
+
 ### `HeadId: number`
 The identifier of the head worn by the character.
 
@@ -70,26 +84,46 @@ The identifier of the character's third hat accessory.
 ### `Hat4: number`
 The identifier of the character's fourth hat accessory.
 
-### `HeadColor: Color3`
-The color of the character's head. Example:
+---
+
+## Methods
+<Note iconType="regular">
+  `Move`, `MoveTo` and `Jump` only take effect where the character is simulated:
+  on the client for the local player's character, and on the server for an
+  [Npc](/classes/npc)'s character (or on the client for an Npc created there).
+  They are ignored while the character is dead or anchored.
+</Note>
+
+### `Move(direction: Vector3): ()`
+Makes the character walk in the given direction until told otherwise. Only the
+horizontal (`X` and `Z`) part of the direction is used, and directions longer
+than `1` are normalized. Pass `Vector3.new(0, 0, 0)` to stop. Cancels any
+`MoveTo` in progress. Example:
 ```lua
-game.Players.LocalPlayer.Character.HeadColor = Color3.fromHex("#ffcc99")
+local character = workspace.Npc.Character
+
+character:Move(Vector3.new(1, 0, 0))
+task.wait(2)
+character:Move(Vector3.new(0, 0, 0))
 ```
 
-### `TorsoColor: Color3`
-The color of the character's torso.
+### `MoveTo(position: Vector3): ()`
+Makes the character walk towards the given position. `MoveToFinished` fires
+with `true` once it gets within half a stud of it horizontally, or with `false`
+if it doesn't arrive within 8 seconds, is interrupted by another `Move` or
+`MoveTo`, or can't be moved. Example:
+```lua
+local character = workspace.Npc.Character
 
-### `RightArmColor: Color3`
-The color of the character's right arm.
+character.MoveToFinished:Connect(function(reached: boolean)
+    print(reached and "Arrived" or "Gave up")
+end)
 
-### `LeftArmColor: Color3`
-The color of the character's left arm.
+character:MoveTo(Vector3.new(20, 0, 20))
+```
 
-### `RightLegColor: Color3`
-The color of the character's right leg.
-
-### `LeftLegColor: Color3`
-The color of the character's left leg.
+### `Jump(): ()`
+Makes the character jump.
 
 ---
 
@@ -107,7 +141,19 @@ Fired whenever the character's `MaxHealth` changes.
 
 ### `AppearanceChanged: Event`
 Fired whenever any of the character's appearance properties change, such as its
-worn body parts, accessories or colors.
+worn body parts, accessories or body part colors.
+
+### `Died: Event`
+Fired when the character's `Health` reaches `0` and it dies. Example:
+```lua
+game.Players.LocalPlayer.Character.Died:Connect(function()
+    print("The character died")
+end)
+```
+
+### `MoveToFinished: Event<boolean>`
+Fired when a `MoveTo` ends. Passes `true` if the character reached the target,
+or `false` if it timed out or was interrupted.
 
 ### `StateChanged: Event<CharacterState>`
 Fired whenever the character's `State` changes. Passes the new

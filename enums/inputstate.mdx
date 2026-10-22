@@ -1,0 +1,38 @@
+---
+title: "InputState"
+description: "InputState"
+icon: "toggle-on"
+---
+
+The `InputState` enum describes which stage of an input an
+[InputObject](/types/inputobject) represents. Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.InputState`. It also decides
+which [InputService](/services/inputservice) event fires: `Begin` fires
+`InputBegan`, `Change` fires `InputChanged`, and `End` and `Cancel` fire
+`InputEnded`.
+
+## Values
+### `Enum.InputState.Begin`
+The input started, such as a key, button or finger being pressed down.
+
+### `Enum.InputState.Change`
+An ongoing input changed, such as the mouse moving, the wheel scrolling, a
+finger dragging, a thumbstick or trigger moving, or a held key repeating.
+
+### `Enum.InputState.End`
+The input ended, such as a key, button or finger being released.
+
+### `Enum.InputState.Cancel`
+The input was interrupted before it could end normally, such as a touch being
+cancelled by the system.
+
+---
+
+## Methods
+### `GetEnumItems(): { InputState }`
+Returns a table of every `InputState` value. Example:
+```lua
+for _, item in Enum.InputState:GetEnumItems() do
+    print(item.Name)
+end
+```

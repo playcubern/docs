@@ -37,6 +37,14 @@ The rotation of the instance in radians.
 ### `RotationDegrees: Vector3`
 The rotation of the instance in degrees.
 
+### `LocalRotation: Vector3`
+The rotation of the instance in radians, relative to its parent. If the parent
+is not a DynamicInstance, this is the same as `Rotation`. Example:
+```lua
+-- Turn the part 90 degrees around its parent's Y axis
+workspace.Model.Part.LocalRotation = Vector3.new(0, math.rad(90), 0)
+```
+
 ### `Anchored: boolean`
 Whether the instance is anchored. Anchored instances are not affected by physics.
 

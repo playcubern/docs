@@ -1,0 +1,38 @@
+---
+title: "RenderingEngineFeatures"
+description: "RenderingEngineFeatures"
+icon: "display"
+---
+
+The `RenderingEngineFeatures` enum describes how much the player's device can
+render. Each value is an [EnumItem](/types/enumitem) accessed through
+`Enum.RenderingEngineFeatures`. It is returned by
+[GraphicsService's](/services/graphicsservice) `FeatureLevel` property. See
+[Role of GraphicsService](/tutorials/about-graphicsservice) for what each level
+supports.
+
+## Values
+### `Enum.RenderingEngineFeatures.Minimal`
+The most basic level, used by devices whose GPU doesn't support modern graphics
+APIs, including older computers.
+
+### `Enum.RenderingEngineFeatures.Limited`
+A reduced feature set, typically used by mobile devices.
+
+### `Enum.RenderingEngineFeatures.Full`
+Every rendering feature is available, typically on computers.
+
+<Warning iconType="regular">
+  Always compare against these members, never their underlying number values.
+</Warning>
+
+---
+
+## Methods
+### `GetEnumItems(): { RenderingEngineFeatures }`
+Returns a table of every `RenderingEngineFeatures` value. Example:
+```lua
+for _, item in Enum.RenderingEngineFeatures:GetEnumItems() do
+    print(item.Name)
+end
+```

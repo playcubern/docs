@@ -8,9 +8,9 @@ icon: "computer-mouse"
   InputService inherits Instance.
 </Note>
 
-The InputService provides access to the player's input, such as the current
-mouse position and helpers for converting screen positions into world-space
-rays.
+The InputService provides access to the player's input, such as keyboard,
+mouse, touch and gamepad events, the current mouse position and helpers for
+converting screen positions into world-space rays.
 
 ## Properties
 ### `MousePosition: Vector2`
@@ -94,3 +94,48 @@ Fired whenever the game window gains focus.
 
 ### `WindowFocusReleased: Event`
 Fired whenever the game window loses focus.
+
+<Note iconType="regular">
+  The input events below only fire on the client, so connect to them from a
+  [LocalScript](/classes/localscript).
+</Note>
+
+Each input event passes an [InputObject](/types/inputobject) describing the
+input, and a `gameProcessed` boolean. `gameProcessed` is `true` when the input
+was already handled by something else, such as typing into a
+[UiTextInput](/classes/uitextinput) or clicking a button, so most gameplay code
+should ignore those inputs.
+
+### `InputBegan: Event<InputObject, boolean>`
+Fired when an input starts, such as a key, mouse button, touch or gamepad
+button being pressed. Example:
+```lua
+local inputService = game:GetService("InputService")
+
+inputService.InputBegan:Connect(function(input: InputObject, gameProcessed: boolean)
+    if gameProcessed then return end
+
+    if input.KeyCode == Enum.KeyCode.E or input.KeyCode == Enum.KeyCode.ButtonX then
+        print("Interact pressed")
+    end
+end)
+```
+
+### `InputChanged: Event<InputObject, boolean>`
+Fired when an ongoing input changes, such as the mouse moving, the wheel
+scrolling, a finger dragging, or a thumbstick or trigger moving. Example:
+```lua
+local inputService = game:GetService("InputService")
+
+inputService.InputChanged:Connect(function(input: InputObject, gameProcessed: boolean)
+    if input.InputType == Enum.InputType.MouseWheel then
+        print("Scrolled", input.Value.Y)
+    elseif input.KeyCode == Enum.KeyCode.Thumbstick1 then
+        print("Left stick at", input.Value.X, input.Value.Y)
+    end
+end)
+```
+
+### `InputEnded: Event<InputObject, boolean>`
+Fired when an input ends or is cancelled, such as a key, mouse button, touch or
+gamepad button being released.

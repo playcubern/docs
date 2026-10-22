@@ -1,0 +1,34 @@
+---
+title: "ModifierKey"
+description: "ModifierKey"
+icon: "keyboard"
+---
+
+The `ModifierKey` enum identifies a modifier key that can be held while another
+input happens. Each value is an [EnumItem](/types/enumitem) accessed through
+`Enum.ModifierKey`. Pass it to [InputObject's](/types/inputobject)
+`IsModifierKeyDown` method.
+
+## Values
+### `Enum.ModifierKey.Shift`
+Either Shift key.
+
+### `Enum.ModifierKey.Ctrl`
+Either Ctrl key.
+
+### `Enum.ModifierKey.Alt`
+Either Alt (Option on macOS) key.
+
+### `Enum.ModifierKey.Meta`
+Either Meta key: Command on macOS, the Windows key on Windows.
+
+---
+
+## Methods
+### `GetEnumItems(): { ModifierKey }`
+Returns a table of every `ModifierKey` value. Example:
+```lua
+for _, item in Enum.ModifierKey:GetEnumItems() do
+    print(item.Name)
+end
+```

@@ -7,7 +7,8 @@ icon: "keyboard"
 The `KeyCode` enum identifies a key on the keyboard. Each value is an
 [EnumItem](/types/enumitem) accessed through `Enum.KeyCode`. It is used by
 [InputService's](/services/inputservice) `IsKeyDown`, `GetStringForKeyCode` and
-`GetKeyCodeFromString` methods.
+`GetKeyCodeFromString` methods, and by [InputObject's](/types/inputobject)
+`KeyCode` property.
 
 ## Values
 
@@ -37,6 +38,18 @@ The `KeyCode` enum identifies a key on the keyboard. Each value is an
 ### Punctuation
 `Minus`, `Equal`, `BracketLeft`, `BracketRight`, `Backslash`, `Semicolon`,
 `Apostrophe`, `Comma`, `Period`, `Slash`, `QuoteLeft`
+
+### Gamepad
+`ButtonA`, `ButtonB`, `ButtonX`, `ButtonY`, `ButtonSelect`, `ButtonGuide`,
+`ButtonStart`, `ButtonL1`, `ButtonR1`, `ButtonL2`, `ButtonR2`, `ButtonL3`,
+`ButtonR3`, `DPadUp`, `DPadDown`, `DPadLeft`, `DPadRight`, `ButtonMisc1`,
+`ButtonPaddle1`, `ButtonPaddle2`, `ButtonPaddle3`, `ButtonPaddle4`,
+`ButtonTouchpad`, `Thumbstick1`, `Thumbstick2`
+
+Gamepad values appear on [InputObjects](/types/inputobject) whose `InputType`
+is `Enum.InputType.Gamepad`. `ButtonL2` and `ButtonR2` are the analog triggers,
+and `Thumbstick1` and `Thumbstick2` are the left and right sticks; for these,
+read the input's `Value` rather than its `State`.
 
 Every value above is accessed as `Enum.KeyCode.<Name>`, for example
 `Enum.KeyCode.Space`.

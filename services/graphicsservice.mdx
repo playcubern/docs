@@ -1,0 +1,32 @@
+---
+title: "GraphicsService"
+description: "GraphicsService"
+icon: "display"
+---
+
+<Note iconType="regular">
+  GraphicsService inherits Instance.
+</Note>
+
+<Warning iconType="regular">
+  GraphicsService is client-side only. Accessing it from the server throws an error.
+</Warning>
+
+The GraphicsService tells you what the player's device can render, so you can
+adapt your game's visuals to it. See
+[Role of GraphicsService](/tutorials/about-graphicsservice) for guidance on
+using it.
+
+## Properties
+### `FeatureLevel: RenderingEngineFeatures`
+The rendering feature level of the player's device. See the
+[RenderingEngineFeatures](/enums/renderingenginefeatures) enum. It is chosen
+when Cubern launches and never changes during a session. This property is
+read-only. Example:
+```lua
+local graphicsService = game:GetService("GraphicsService")
+
+if graphicsService.FeatureLevel == Enum.RenderingEngineFeatures.Full then
+    print("Every rendering feature is available")
+end
+```

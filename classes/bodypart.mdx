@@ -8,4 +8,16 @@ icon: "bone"
   BodyPart inherits DynamicInstance.
 </Note>
 
-A physical part that makes up a [Character](/classes/character)'s body, such as a head, torso, arm or leg. It has no additional properties, methods or events beyond those inherited from [DynamicInstance](/abstract-classes/dynamicinstance).
+A physical part that makes up a [Character](/classes/character)'s body, such as
+a head, torso, arm or leg. A character's body parts are its children named
+`Head`, `Torso`, `LeftArm`, `RightArm`, `LeftLeg` and `RightLeg`. In addition
+to everything inherited from [DynamicInstance](/abstract-classes/dynamicinstance),
+it has the following members.
+
+## Properties
+### `Color: Color3`
+The color of the body part. Changing it fires the character's
+`AppearanceChanged` event. Example:
+```lua
+game.Players.LocalPlayer.Character.Head.Color = Color3.fromHex("#ffcc99")
+```

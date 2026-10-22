@@ -1,0 +1,44 @@
+---
+title: "InputType"
+description: "InputType"
+icon: "gamepad"
+---
+
+The `InputType` enum describes what kind of device produced an
+[InputObject](/types/inputobject). Each value is an [EnumItem](/types/enumitem)
+accessed through `Enum.InputType`.
+
+## Values
+### `Enum.InputType.Keyboard`
+A key was pressed, held or released. The key is in the input's `KeyCode`.
+
+### `Enum.InputType.MouseButton`
+A mouse button was pressed or released. The button is in the input's
+`MouseButton`, and the cursor position in `Position`.
+
+### `Enum.InputType.MouseMovement`
+The mouse moved. The new cursor position is in `Position`, and how far it moved
+in `Delta`.
+
+### `Enum.InputType.MouseWheel`
+The mouse wheel scrolled. `Value.Y` is positive when scrolling up and negative
+when scrolling down; `Value.X` holds horizontal scrolling.
+
+### `Enum.InputType.Touch`
+A finger touched, dragged across or left the screen. Each finger has its own
+`TouchId`.
+
+### `Enum.InputType.Gamepad`
+A gamepad button, trigger or thumbstick was used. The control is in the input's
+`KeyCode`, and which gamepad in `GamepadIndex`.
+
+---
+
+## Methods
+### `GetEnumItems(): { InputType }`
+Returns a table of every `InputType` value. Example:
+```lua
+for _, item in Enum.InputType:GetEnumItems() do
+    print(item.Name)
+end
+```

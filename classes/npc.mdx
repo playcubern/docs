@@ -1,0 +1,28 @@
+---
+title: "Npc"
+description: "Npc"
+icon: "robot"
+---
+
+<Note iconType="regular">
+  Npc inherits DynamicInstance.
+</Note>
+
+A non-player character. An Npc holds a [Character](/classes/character), which
+is the body that appears and moves in the world, and can be controlled by
+scripts with the Character's `Move`, `MoveTo` and `Jump` methods.
+
+The Npc's `Position`, `Rotation` and `Scale` are those of its Character, so
+setting them moves the Character. An Npc is always anchored and never collides
+or fires touch events itself; its Character handles physics instead.
+
+## Properties
+### `Character: Character`
+The [Character](/classes/character) that makes up the Npc's body. This property
+is read-only. Example:
+```lua
+local npc = workspace.Npc
+
+npc.Character.WalkSpeed = 10
+npc.Character:MoveTo(Vector3.new(20, 0, 20))
+```

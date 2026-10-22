@@ -1,0 +1,72 @@
+---
+title: "InputObject"
+description: "InputObject"
+icon: "hand-pointer"
+---
+
+An `InputObject` describes a single input from the player, such as a key press,
+mouse movement, touch or gamepad button. It is passed to
+[InputService's](/services/inputservice) `InputBegan`, `InputChanged` and
+`InputEnded` events. Its properties are read-only.
+
+## Properties
+### `InputType: InputType`
+What kind of device produced the input. See the [InputType](/enums/inputtype)
+enum.
+
+### `State: InputState`
+Which stage of the input this is. See the [InputState](/enums/inputstate) enum.
+
+### `KeyCode: KeyCode`
+The key or gamepad control used, for `Keyboard` and `Gamepad` inputs. It is
+`Enum.KeyCode.Unknown` for other input types. See the [KeyCode](/enums/keycode)
+enum.
+
+### `MouseButton: MouseButton`
+The mouse button used, for `MouseButton` inputs. See the
+[MouseButton](/enums/mousebutton) enum.
+
+### `Position: Vector2`
+The screen position of the input, for mouse and touch inputs.
+
+### `Delta: Vector2`
+How far the input moved since the last one, for `MouseMovement` inputs and
+touch drags.
+
+### `Value: Vector2`
+The analog value of the input:
+- `MouseWheel`: the scroll amount. `Y` is positive when scrolling up.
+- Thumbsticks (`Thumbstick1`, `Thumbstick2`): the stick position, from `-1` to
+  `1` on each axis. `Y` is positive when pushed up.
+- Triggers (`ButtonL2`, `ButtonR2`): how far the trigger is pulled, from `0` to
+  `1`, in `X`.
+- Other gamepad buttons: `X` is `1` while pressed and `0` when released.
+
+### `TouchId: number`
+Identifies the finger for `Touch` inputs, so several fingers on the screen at
+once can be told apart.
+
+### `GamepadIndex: number`
+Which gamepad produced the input, starting at `1`, for `Gamepad` inputs.
+
+### `Modifiers: number`
+The modifier keys held during the input, as a bit field. Use
+`IsModifierKeyDown` instead of reading it directly.
+
+---
+
+## Methods
+### `IsModifierKeyDown(modifierKey: ModifierKey): boolean`
+Returns true if the given [ModifierKey](/enums/modifierkey) was held when the
+input happened. Example:
+```lua
+local inputService = game:GetService("InputService")
+
+inputService.InputBegan:Connect(function(input: InputObject, gameProcessed: boolean)
+    if gameProcessed then return end
+
+    if input.KeyCode == Enum.KeyCode.S and input:IsModifierKeyDown(Enum.ModifierKey.Ctrl) then
+        print("Ctrl+S pressed")
+    end
+end)
+```
