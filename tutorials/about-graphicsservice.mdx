@@ -1,0 +1,51 @@
+---
+title: "Role of GraphicsService"
+description: "A tutorial explaining the role of GraphicsService"
+icon: "draw-polygon"
+---
+# Making your game look good on every device
+
+GraphicsService tells you what the player's device can render, so you can adapt your game's visuals and performance to it.
+
+GraphicsService is client-side only. Accessing it from the server throws an error, since the server doesn't render anything.
+
+## Rendering feature levels
+
+Every player runs at one of three levels, from least to most capable:
+
+`Minimal` < `Limited` < `Full`
+
+Each level supports everything the level below it does. The level is chosen when Cubern launches, based on what the device's GPU supports, and it can't change during a session, so you only need to read it once.
+
+Typically:
+- Computers run at `Full`
+- Mobile devices run at `Limited`
+- Any device whose GPU doesn't support modern graphics APIs falls back to `Minimal`, including older computers
+
+Don't assume a device type from the level. A five-year-old laptop and a budget phone can both be `Minimal`.
+
+*(For bug reports: these correspond to Godot's `forward_plus`, `mobile` and `gl_compatibility` rendering methods.)*
+
+## Why adapt at all?
+
+Cubern handles some fallbacks automatically. For example, volumetric fog is replaced with a cheaper fake fog at `Limited` and below. These fallbacks are deliberately kept to a minimum, because every game is going for a different look. You know better than Cubern what your game should look like on a lower-end device.
+
+If you do nothing, your game still runs everywhere. Unsupported effects are simply skipped or swapped for Cubern's fallback.
+
+## What each level supports
+
+| Feature | Minimal | Limited | Full |
+|---|---|---|---|
+| Glow | ✅ | ✅ | ✅ |
+| Volumetric fog | Fake fog | Fake fog | ✅ |
+| Ambient occlusion (SSAO) | ❌ | ❌ | ✅ |
+| Screen-space reflections | ❌ | ❌ | ✅ |
+| Shadow quality | Low | Medium | High |
+
+## Mistakes to avoid
+
+**Don't treat the level as a device check.** `Minimal` includes older computers, not just phones. Branch on what the device can render, not on what kind of device you think it is.
+
+**Don't let the level affect gameplay.** If `Full` players get thick fog and `Minimal` players get none, `Minimal` players can see further, which is an unfair advantage in competitive games. Give lower levels a substitute that blocks the same view, rather than removing the effect entirely.
+
+**Don't compare against raw numbers.** Always compare against `Enum.RenderingEngineFeatures` members, never their underlying integer values. If a new level is ever added in between, your scripts will keep working.

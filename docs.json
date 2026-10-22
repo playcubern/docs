@@ -30,7 +30,8 @@
           {
             "group": "Tutorials",
             "pages": [
-              "tutorials/collab-mode"
+              "tutorials/collab-mode",
+              "tutorials/about-graphicsservice"
             ]
           },
           {
