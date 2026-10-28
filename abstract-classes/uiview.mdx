@@ -23,9 +23,21 @@ inherit from it.
 ### `BackgroundColor: Color3`
 The background color of the view.
 
+### `BackgroundTransparency: number`
+How see-through the background is, from `0` (fully opaque) to `1` (fully
+invisible). Values outside that range are clamped. Unlike
+[Transparency](/abstract-classes/uiinstance#transparency-number), it only
+affects the background, not the border, text or children. Example:
+```lua
+script.Parent.BackgroundTransparency = 0.5
+```
+
 ### `BackgroundTransparent: boolean`
-Whether the background is fully transparent. When `true`, `BackgroundColor` is
-not shown.
+<Warning iconType="regular">
+  This property is deprecated. Use `BackgroundTransparency` instead.
+</Warning>
+Whether the background is fully transparent. Setting it to `true` is the same
+as setting `BackgroundTransparency` to `1`, and `false` is the same as `0`.
 
 ### `CornerRadiusTopLeft: number`
 The corner radius of the top-left corner.
