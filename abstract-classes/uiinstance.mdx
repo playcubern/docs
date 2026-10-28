@@ -44,6 +44,14 @@ Whether the UI instance should receive input.
 ### `Visible: boolean`
 Whether the UI instance should be visible.
 
+### `Transparency: number`
+How see-through the UI instance is, from `0` (fully opaque) to `1` (fully
+invisible). Values outside that range are clamped. It only affects this
+instance, not its children. Example:
+```lua
+script.Parent.Transparency = 0.5
+```
+
 ### `ClipsDescendants: boolean`
 Whether the UI instance should clip the children out of it.
 
