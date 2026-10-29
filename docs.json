@@ -13,7 +13,12 @@
   "appearance": {
     "default": "dark"
   },
-  "favicon": "/favicon.jpg",
+  "favicon": "/favicon.png",
+  "logo": {
+    "light": "/favicon.png",
+    "dark": "/favicon.png",
+    "href": "/"
+  },
   "navigation": {
     "tabs": [
       {
