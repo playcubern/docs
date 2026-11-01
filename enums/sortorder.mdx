@@ -1,0 +1,30 @@
+---
+title: "SortOrder"
+description: "SortOrder"
+icon: "arrow-down-1-9"
+---
+
+The `SortOrder` enum defines how a [UiListLayout](/classes/uilistlayout)
+orders its children. Each value is an [EnumItem](/types/enumitem) accessed
+through `Enum.SortOrder`.
+
+## Values
+### `Enum.SortOrder.LayoutOrder`
+Sorts children by their
+[LayoutOrder](/abstract-classes/uiinstance#layoutorder-number), lowest first.
+Children with the same `LayoutOrder` keep their order in the explorer.
+
+### `Enum.SortOrder.Name`
+Sorts children by name in natural order, ignoring case, so `Item2` comes
+before `Item10`. Children with the same name keep their order in the explorer.
+
+---
+
+## Methods
+### `GetEnumItems(): { SortOrder }`
+Returns a table of every `SortOrder` value. Example:
+```lua
+for _, order in Enum.SortOrder:GetEnumItems() do
+    print(order.Name)
+end
+```

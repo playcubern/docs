@@ -1,11 +1,92 @@
 ---
 title: "UiListLayout"
-description: "UiListLayout"
+description: "Arranges the UI instances inside its parent in a vertical or horizontal list"
 icon: "list"
 ---
 
 <Note iconType="regular">
-  UiListLayout inherits UiInstance.
+  UiListLayout inherits Instance.
 </Note>
 
-A UI container intended to arrange its children in a list. It has no additional properties, methods or events beyond those inherited from [UiInstance](/abstract-classes/uiinstance).
+UiListLayout arranges its sibling [UI instances](/abstract-classes/uiinstance)
+one after another inside their shared parent. Parent it to a
+[UiPanel](/classes/uipanel) (or any other UI instance, a
+[UiLayer](/classes/uilayer) or a [UiSurface](/classes/uisurface)) and every
+visible UI instance under that same parent is laid out automatically. Adding,
+removing, resizing or reordering children updates the list on the next frame.
+
+```lua
+local panel = script.Parent
+
+local layout = Instance.new("UiListLayout", panel)
+layout.Padding = UDim.new(0, 8)
+layout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+
+for i = 1, 3 do
+    local label = Instance.new("UiLabel", panel)
+    label.Name = "Item" .. i
+    label.LayoutOrder = i
+end
+```
+
+A few rules to keep in mind:
+
+- While a UI instance is laid out, the layout controls where it is drawn and
+  its own `Position` and `AnchorPoint` are ignored. Its `Position` keeps its
+  value, so removing the layout puts it back where it was.
+- Each child keeps its own `Size`. Scale sizes are relative to the parent's
+  content area (its size, minus any [UiPadding](/classes/uipadding)).
+- Children with `Visible` set to `false` are skipped and take up no space.
+- Only one layout is used per parent. If a parent has more than one, the
+  first child layout wins.
+- In the editor, laid-out UI instances can be resized but not dragged.
+
+## Properties
+### `FillDirection: FillDirection`
+The direction children are stacked in. `Vertical` stacks them top to bottom,
+`Horizontal` stacks them left to right. Defaults to `Vertical`. See
+[FillDirection](/enums/filldirection).
+
+### `Padding: UDim`
+The gap between each child, along the fill direction. The scale part is
+relative to the parent's content size along that direction. Defaults to
+`UDim.new(0, 0)`. Example:
+```lua
+script.Parent.UiListLayout.Padding = UDim.new(0, 10)
+```
+
+### `HorizontalAlignment: HorizontalAlignment`
+How children are aligned horizontally. In a vertical list it aligns each child
+within the width of the parent, and `Fill` stretches every child to the full
+width. In a horizontal list it aligns the whole row, and `Fill` behaves like
+`Left`. Defaults to `Left`. See
+[HorizontalAlignment](/enums/horizontalalignment).
+
+### `VerticalAlignment: VerticalAlignment`
+How children are aligned vertically. In a horizontal list it aligns each child
+within the height of the parent, and `Fill` stretches every child to the full
+height. In a vertical list it aligns the whole column, and `Fill` behaves like
+`Top`. Defaults to `Top`. See [VerticalAlignment](/enums/verticalalignment).
+
+### `SortOrder: SortOrder`
+How children are ordered. `LayoutOrder` sorts by each child's
+[LayoutOrder](/abstract-classes/uiinstance#layoutorder-number), and `Name`
+sorts by name in natural order, so `Item2` comes before `Item10`. Children
+that tie keep their order in the explorer. Defaults to `LayoutOrder`. See
+[SortOrder](/enums/sortorder).
+
+### `AbsoluteContentSize: Vector2`
+<Note iconType="regular">
+  This property is read-only.
+</Note>
+The size of all laid-out children together, in pixels, including the padding
+between them. Useful for sizing a parent to fit its contents. Example:
+```lua
+local layout = script.Parent.UiListLayout
+
+layout.PropertyChanged:Connect(function(propertyName: string)
+    if propertyName == "AbsoluteContentSize" then
+        print("Content is now", layout.AbsoluteContentSize)
+    end
+end)
+```

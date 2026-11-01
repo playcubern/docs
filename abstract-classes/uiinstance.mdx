@@ -18,10 +18,14 @@ icon: "sidebar"
 
 ## Properties
 ### `Position: UDim2`
-The position of the UI instance relative to its parent.
+The position of the UI instance relative to its parent. If the parent has a
+[UiPadding](/classes/uipadding), it is relative to the padded area. Ignored
+while the instance is arranged by a [UiListLayout](/classes/uilistlayout), but
+it keeps its value.
 
 ### `Size: UDim2`
-The size of the UI instance relative to its parent.
+The size of the UI instance relative to its parent. If the parent has a
+[UiPadding](/classes/uipadding), the scale part is relative to the padded area.
 
 ### `AnchorPoint: Vector2`
 The anchor point of the UI instance.
@@ -54,6 +58,15 @@ script.Parent.Transparency = 0.5
 
 ### `ClipsDescendants: boolean`
 Whether the UI instance should clip the children out of it.
+
+### `LayoutOrder: number`
+The order of the UI instance in its parent's
+[UiListLayout](/classes/uilistlayout) when the layout's `SortOrder` is
+`LayoutOrder`. Lower values come first, and ties keep their order in the
+explorer. Defaults to `0`. It has no effect without a layout. Example:
+```lua
+script.Parent.LayoutOrder = 1
+```
 
 ---
 

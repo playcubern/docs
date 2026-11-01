@@ -1,0 +1,50 @@
+---
+title: "UiPadding"
+description: "Adds space between the edges of its parent and the parent's children"
+icon: "expand"
+---
+
+<Note iconType="regular">
+  UiPadding inherits Instance.
+</Note>
+
+UiPadding shrinks the area its parent's children are placed in. Parent it to a
+[UiPanel](/classes/uipanel) (or any other UI instance, a
+[UiLayer](/classes/uilayer) or a [UiSurface](/classes/uisurface)) and every UI
+instance under that same parent is positioned and sized inside the padded area
+instead of the full parent:
+
+- A child at `Position` `{0, 0}, {0, 0}` sits at the padded top-left corner.
+- A child with `Size` `{1, 0}, {1, 0}` fills the padded area, not the whole
+  parent.
+- A [UiListLayout](/classes/uilistlayout) under the same parent stacks its
+  children inside the padded area.
+
+The scale part of each side is relative to the parent's size: `PaddingLeft`
+and `PaddingRight` use its width, `PaddingTop` and `PaddingBottom` use its
+height. If a parent has more than one UiPadding, the first one is used.
+
+```lua
+local padding = Instance.new("UiPadding", script.Parent)
+padding.PaddingTop = UDim.new(0, 12)
+padding.PaddingBottom = UDim.new(0, 12)
+padding.PaddingLeft = UDim.new(0.05, 0)
+padding.PaddingRight = UDim.new(0.05, 0)
+```
+
+## Properties
+### `PaddingTop: UDim`
+The space between the top edge of the parent and its children. Defaults to
+`UDim.new(0, 0)`.
+
+### `PaddingBottom: UDim`
+The space between the bottom edge of the parent and its children. Defaults to
+`UDim.new(0, 0)`.
+
+### `PaddingLeft: UDim`
+The space between the left edge of the parent and its children. Defaults to
+`UDim.new(0, 0)`.
+
+### `PaddingRight: UDim`
+The space between the right edge of the parent and its children. Defaults to
+`UDim.new(0, 0)`.

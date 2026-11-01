@@ -1,0 +1,27 @@
+---
+title: "FillDirection"
+description: "FillDirection"
+icon: "arrow-down-wide-short"
+---
+
+The `FillDirection` enum defines the direction a
+[UiListLayout](/classes/uilistlayout) stacks its children in. Each value is an
+[EnumItem](/types/enumitem) accessed through `Enum.FillDirection`.
+
+## Values
+### `Enum.FillDirection.Vertical`
+Stacks children from top to bottom.
+
+### `Enum.FillDirection.Horizontal`
+Stacks children from left to right.
+
+---
+
+## Methods
+### `GetEnumItems(): { FillDirection }`
+Returns a table of every `FillDirection` value. Example:
+```lua
+for _, direction in Enum.FillDirection:GetEnumItems() do
+    print(direction.Name)
+end
+```
