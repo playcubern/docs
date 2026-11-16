@@ -1,0 +1,58 @@
+---
+title: "CollectionService"
+description: "CollectionService"
+icon: "tags"
+---
+
+<Note iconType="regular">
+  CollectionService inherits Instance.
+</Note>
+
+The CollectionService lets you find and track instances by their tags. Tags are
+added and removed with [`Instance:AddTag`](/abstract-classes/instance) and
+[`Instance:RemoveTag`](/abstract-classes/instance).
+
+## Methods
+### `GetTagged(tag: string): { Instance }`
+Returns every instance that currently has the given tag. Example:
+```lua
+local collectionService = game:GetService("CollectionService")
+
+for _, part in collectionService:GetTagged("Lava") do
+    part.Touched:Connect(function(other)
+        print(other.Name .. " touched lava")
+    end)
+end
+```
+
+### `GetInstanceAddedSignal(tag: string): Event<Instance>`
+Returns an [Event](/types/event) that fires whenever the given tag is added to
+an instance. Passes the instance that was tagged. Example:
+```lua
+local collectionService = game:GetService("CollectionService")
+
+collectionService:GetInstanceAddedSignal("Lava"):Connect(function(instance)
+    print(instance.Name .. " is now lava")
+end)
+```
+
+### `GetInstanceRemovedSignal(tag: string): Event<Instance>`
+Returns an [Event](/types/event) that fires whenever the given tag is removed
+from an instance. Passes the instance that was untagged. Example:
+```lua
+local collectionService = game:GetService("CollectionService")
+
+collectionService:GetInstanceRemovedSignal("Lava"):Connect(function(instance)
+    print(instance.Name .. " is no longer lava")
+end)
+```
+
+### `GetAllTags(): { string }`
+Returns a list of every tag currently in use. Example:
+```lua
+local collectionService = game:GetService("CollectionService")
+
+for _, tag in collectionService:GetAllTags() do
+    print(tag)
+end
+```

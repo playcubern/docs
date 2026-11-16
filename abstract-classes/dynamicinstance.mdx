@@ -67,3 +67,14 @@ end)
 
 ### `TouchEnded: Event<DynamicInstance>`
 Fired whenever another DynamicInstance stops touching this instance. Passes the instance that stopped touching.
+
+---
+
+## Methods
+### `GetTouchingParts(): { DynamicInstance }`
+Returns every DynamicInstance that is currently touching this instance. Example:
+```lua
+for _, other in workspace.Part:GetTouchingParts() do
+    print(other.Name .. " is touching the part")
+end
+```
